@@ -5,9 +5,9 @@ export default class RailsApi {
     ).then(res => res.json())
   }
 
-  static fetchSubtopics(topicId, subtopicId) {
+  static fetchArtifacts(){
     return fetch(
-      `http://localhost:3000/api/v1/topics/${topicId}/subtopics/${subtopicId}`
+      `http://localhost:3000/api/v1/artifacts`
     ).then(res => res.json())
   }
 
