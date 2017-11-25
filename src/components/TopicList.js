@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import TopicCard from './TopicCard'
+
 
 const TopicList = (props) => {
+
   const renderTopics = props.topics.map((topic, idx) =>
-  <div>
-    <Link key={idx} to={`/topics/${topic.id}`}>{topic.name}</Link><br/>
-  </div>
+  <TopicCard key={topic.id} topic={topic} onSelect={props.onSelect}/>
   );
   return (
     <div>{renderTopics}</div>

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchTopics } from "../actions/topics";
+import { fetchTopics, selectTopic } from "../actions/topics";
 import TopicList from '../components/TopicList';
 import TopicShow from '../components/TopicShow'
+import TopicNew from '../components/TopicNew'
 
 
 class TopicContainer extends Component {
@@ -14,21 +15,18 @@ class TopicContainer extends Component {
   render() {
     return (
       <div>
-        <TopicList topics={this.props.topics}/>
-
-        <Route path={`${this.props.match.url}/:topicId`} component={TopicShow} />
-        <Route exact path={this.props.match.url} render ={()=> (
-          <h3>Select a Topic </h3>
-        )}/>
+        <TopicList topics={this.props.topics} onSelect={this.props.onSelect}/>
+        <TopicNew />
+        <TopicShow topic={this.props.selectTopic} />
       </div>
     );
   }
 }
 
-
   function mapStateToProps(state) {
     return {
       topics: state.topics.topics,
+      selectTopic: state.topics.selectTopic,
       isLoading: state.isLoading
     };
   }
@@ -37,6 +35,9 @@ class TopicContainer extends Component {
     return {
       fetchTopics: () => {
         dispatch(fetchTopics());
+      },
+      onSelect: topic => {
+        dispatch(selectTopic(topic))
       }
     };
   }

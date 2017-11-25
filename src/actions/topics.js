@@ -19,3 +19,10 @@ function fetchedTopics(topics) {
 function fetchingTopics() {
   return { type: "FETCHING_TOPICS" };
 }
+
+export function selectTopic(topic) {
+  return{
+    type: "SELECTED_TOPIC",
+    payload: topic
+  }
+}
