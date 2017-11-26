@@ -9,12 +9,16 @@ class SubtopicShow extends React.Component {
 
       const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
 
-       const subtopicArtifacts = subtopicArtifactsArray.map((artifact, index) => artifact.media )
-      console.log(subtopicArtifactsArray)
+       const subtopicArtifactsUrl = subtopicArtifactsArray.map((artifact, index) =>
+         <iframe key={index} width="420" height="315"
+           src={artifact.url} allowFullScreen>
+         </iframe>
+     )
     return(
       <div>
         <div>{this.props.subtopic.name}</div>
-        {subtopicArtifacts}
+
+        {subtopicArtifactsUrl}
 
     </div>
 
