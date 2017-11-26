@@ -11,5 +11,16 @@ export default class RailsApi {
     ).then(res => res.json())
   }
 
+  static createArtifact(params) {
+    console.log("rails api", params)
+    return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics/${params.subtopic_id}/artifacts`, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json())
+  }
 
 }

@@ -1,43 +1,57 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import {createArtifact} from '../actions/artifacts'
 
-
-class TopicNew extends React.Component {
+class ArtifactNew extends React.Component {
 
   state = {
-    artifact: {
       media: '',
-      
+      url: '',
+      topic_id: this.props.subtopic.topic_id,
+      subtopic_id: this.props.subtopic.id
     }
-  }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // Destructure addMovie and history from the components props
-    //const { addTopic, history } = this.props;
-    // Create the movie with the Redux action
-    //addTopic(this.state);
-    // redirect to /movies route
-    //history.push('/movies')
+    this.props.createArtifact(this.state);
   }
 
-  handleOnChange = event => {
+  handleMediaChange = event => {
     this.setState({
-      name: event.target.value
+      media: event.target.value
+    });
+  }
+
+  handleUrlChange = event => {
+    this.setState({
+      url: event.target.value
     });
   }
 
   render(){
+
     return (
       <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
         <input
           type="text"
-          onChange={this.handleOnChange}
-          placeholder="Add a Topic" />
-        <input type="submit" value="Add Topic" />
+          onChange={this.handleMediaChange}
+          placeholder="Media Type" />
+        <input
+          type="text"
+          onChange={this.handleUrlChange}
+          placeholder="URL" />
+        <input type="submit" value="Add Artifact" />
       </form>
     );
   }
 }
-export default TopicNew
-//export default connect(null, { addTopic })(TopicNew)
+
+function mapDispatchToProps(dispatch){
+  return{
+    createArtifact: (params) => {
+      dispatch(createArtifact(params))
+    }
+  }
+}
+
+export default connect(null,  mapDispatchToProps)(ArtifactNew)

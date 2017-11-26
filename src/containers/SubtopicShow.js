@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchArtifacts } from "../actions/artifacts";
+import ArtifactNew from "../components/ArtifactNew"
 
 
 class SubtopicShow extends React.Component {
@@ -17,6 +18,7 @@ class SubtopicShow extends React.Component {
     return(
       <div>
         <div>{this.props.subtopic.name}</div>
+        <ArtifactNew subtopic={this.props.subtopic}/>
 
         {subtopicArtifactsUrl}
 

@@ -20,3 +20,9 @@ function fetchedArtifacts(artifacts) {
 function fetchingArtifacts() {
   return { type: "FETCHING_ARTIFACTS" };
 }
+
+export function createArtifact(params){
+  return function(dispatch){
+    RailsApi.createArtifact(params)
+  }
+}
