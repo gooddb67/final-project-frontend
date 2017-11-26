@@ -36,6 +36,7 @@ class ArtifactNew extends React.Component {
     return (
       <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
         <select value={this.state.value} onChange={this.handleMediaChange}>
+          <option disabled selected value> -- select media type -- </option>
           <option value="Video">Video</option>
           <option value="Image">Image</option>
           <option value="Link">Link</option>

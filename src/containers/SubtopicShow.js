@@ -10,17 +10,28 @@ class SubtopicShow extends React.Component {
 
       const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
 
-       const subtopicArtifactsUrl = subtopicArtifactsArray.map((artifact, index) =>
-         <iframe key={index} width="420" height="315"
-           src={artifact.url} allowFullScreen>
-         </iframe>
+      const subtopicArtifacts = subtopicArtifactsArray.map((artifact, index) => {
+        switch (artifact.media){
+          case "Video":
+             return `${artifact.url}`
+          case "Link":
+             return `<a href="${artifact.url}" target="_blank">${artifact.url}</a>`
+          case "Image":
+             return `<img src="${artifact.url}" />`
+        }
+        return subtopicArtifacts
+      }
      )
+
+     console.log(subtopicArtifacts)
+
     return(
       <div>
         <div>{this.props.subtopic.name}</div>
         <ArtifactNew subtopic={this.props.subtopic}/>
 
-        {subtopicArtifactsUrl}
+        <div dangerouslySetInnerHTML={{__html: subtopicArtifacts}}></div>
+
 
     </div>
 
@@ -36,7 +47,6 @@ function mapStateToProps(state, ownProps){
   } else{
     return {subtopic: {}}
   }
-
 }
 
 function mapDispatchToProps(dispatch){
