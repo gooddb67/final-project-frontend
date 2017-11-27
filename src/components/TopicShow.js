@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import {Route, Link} from 'react-router-dom'
+import SubtopicNew from './SubtopicNew'
 
 
 
@@ -12,6 +13,7 @@ const TopicShow = (props) => {
     <div>
       <h2>{props.topic ? props.topic.name : null }</h2>
       {subtopicLinks}
+      {subtopicLinks ? <SubtopicNew /> : null}
     </div>
   )
 }

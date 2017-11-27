@@ -22,9 +22,7 @@ class SubtopicShow extends React.Component {
         return subtopicArtifacts
       }
      )
-
-     console.log(subtopicArtifacts)
-
+     
     return(
       <div>
         <div>{this.props.subtopic.name}</div>

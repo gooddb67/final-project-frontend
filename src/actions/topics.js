@@ -26,3 +26,9 @@ export function selectTopic(topic) {
     payload: topic
   }
 }
+
+export function createSubtopic(params){
+  return function(dispatch){
+    RailsApi.createSubtopic(params)
+  }
+}

@@ -7,6 +7,7 @@ import TopicList from '../components/TopicList';
 import TopicShow from '../components/TopicShow'
 import TopicNew from '../components/TopicNew'
 import SubtopicShow from './SubtopicShow'
+import SubtopicNew from '../components/SubtopicNew'
 
 
 class TopicContainer extends Component {
@@ -18,7 +19,7 @@ class TopicContainer extends Component {
   render() {
     return (
       <div>
-        <Route path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
+        <Route exaxt path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
         <Route exact path={this.props.match.url} render={() => (
           <div>
             <TopicList topics={this.props.topics} onSelect={this.props.onSelect}/>

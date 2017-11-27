@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { Form } from 'semantic-ui-react'
 
 
 class TopicNew extends React.Component {
@@ -31,7 +32,7 @@ class TopicNew extends React.Component {
           type="text"
           onChange={this.handleOnChange}
           placeholder="Add a Topic" />
-        <input type="submit" value="Add Topic" />
+        <Form.Button><input type="submit" value="Add Topic" /></Form.Button>
       </form>
     );
   }
