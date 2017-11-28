@@ -1,9 +1,9 @@
 export default function ArtifactManager(state = {artifacts: []}, action){
   switch (action.type) {
     case "ADD_ARTIFACT":
-      return {...state}
+      return {...state, artifacts: state.artifacts.concat(action.payload)}
     case "FETCHED_ARTIFACTS":
-      return { ...state, topics: action.payload, isLoading: false };
+      return { ...state, artifacts: action.payload, isLoading: false };
     case "FETCHING_ARTIFACTS":
       return { ...state, isLoading: true };
     default:

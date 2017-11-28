@@ -14,7 +14,6 @@ class ArtifactNew extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createArtifact(this.state);
-    window.location.reload()
   }
 
   handleMediaChange = event => {

@@ -22,7 +22,7 @@ class SubtopicShow extends React.Component {
         return subtopicArtifacts
       }
      )
-     
+
     return(
       <div>
         <div>{this.props.subtopic.name}</div>
@@ -41,7 +41,7 @@ function mapStateToProps(state, ownProps){
   const subtopic = state.topics.selectTopic.subtopics.find(subtopic => subtopic.id == ownProps.match.params.subtopicId)
 
   if (subtopic){
-    return {subtopic: subtopic, artifacts: state.artifacts.topics}
+    return {subtopic: subtopic, artifacts: state.artifacts.artifacts}
   } else{
     return {subtopic: {}}
   }
