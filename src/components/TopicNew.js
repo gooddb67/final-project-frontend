@@ -15,7 +15,7 @@ class TopicNew extends React.Component {
     event.preventDefault();
     this.props.createTopic(this.state)
     this.setState({
-      redirectToSubtopic: true
+      name: ''
     })
   }
 
@@ -32,6 +32,7 @@ class TopicNew extends React.Component {
         <input
           type="text"
           onChange={this.handleOnChange}
+          value={this.state.name}
           placeholder="Add a Topic" />
         <Form.Button><input type="submit" value="Add Topic" /></Form.Button>
       </form>

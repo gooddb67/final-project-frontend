@@ -21,8 +21,9 @@ class SubtopicNew extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createSubtopic(this.state);
-
-    this.setState({redirectToSubtopic: true})
+    this.setState({
+      name: ''
+    })
   }
 
   handleOnChange = event => {
@@ -37,6 +38,7 @@ class SubtopicNew extends React.Component {
         <input
           type="text"
           onChange={this.handleOnChange}
+          value={this.state.name}
           placeholder="Add a Subtopic" />
         <Form.Button><input type="submit" value="Add Subtopic" /></Form.Button>
       </form>

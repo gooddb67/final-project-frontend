@@ -8,6 +8,8 @@ import TopicShow from '../components/TopicShow'
 import TopicNew from '../components/TopicNew'
 import SubtopicShow from './SubtopicShow'
 import SubtopicNew from '../components/SubtopicNew'
+import { Grid } from 'semantic-ui-react'
+import TopicGrid from './TopicGrid'
 
 
 class TopicContainer extends Component {
@@ -18,17 +20,17 @@ class TopicContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Route path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
-        <Route exact path={this.props.match.url} render={() => (
-          <div>
-            <TopicList topics={this.props.topics} onSelect={this.props.onSelect}/>
-            <TopicNew topic={this.props.selectTopic}/>
-            <TopicShow topic={this.props.selectTopic} />
-          </div>
-        )}/>
 
-      </div>
+        <div>
+            <Route path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
+            <Route exact path={this.props.match.url} render={() =>
+              <TopicGrid
+              topics={this.props.topics}
+              selectTopic={this.props.selectTopic}
+              onSelect={this.props.onSelect} />}
+            />
+        </div>
+
     );
   }
 }

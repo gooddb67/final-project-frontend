@@ -14,6 +14,9 @@ class ArtifactNew extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createArtifact(this.state);
+    this.setState({
+      url: ''
+    })
   }
 
   handleMediaChange = event => {
@@ -41,6 +44,7 @@ class ArtifactNew extends React.Component {
         <input
           type="text"
           onChange={this.handleUrlChange}
+          value={this.state.url}
           placeholder="URL" />
         <input type="submit" value="Add Artifact" />
       </form>
