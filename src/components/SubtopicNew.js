@@ -34,13 +34,13 @@ class SubtopicNew extends React.Component {
 
   render(){
     return (
-      <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <input
+      <form onSubmit={this.handleOnSubmit} >
+        <Form.Input
           type="text"
           onChange={this.handleOnChange}
           value={this.state.name}
-          placeholder="Add a Subtopic" />
-        <Form.Button><input type="submit" value="Add Subtopic" /></Form.Button>
+          placeholder="Add Subtopic" />
+        <Form.Button><input type="submit" value="Add Subtopic"/></Form.Button>
       </form>
     );
   }

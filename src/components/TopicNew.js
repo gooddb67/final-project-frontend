@@ -28,12 +28,12 @@ class TopicNew extends React.Component {
   render(){
 
     return (
-      <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-        <input
+      <form onSubmit={this.handleOnSubmit} >
+        <Form.Input
           type="text"
           onChange={this.handleOnChange}
           value={this.state.name}
-          placeholder="Add a Topic" />
+          placeholder="Add Topic" />
         <Form.Button><input type="submit" value="Add Topic" /></Form.Button>
       </form>
     );
