@@ -13,7 +13,7 @@ const TopicShow = (props) => {
     <div>
       <h2>{props.topic ? props.topic.name : null }</h2>
       {subtopicLinks}
-      {subtopicLinks ? <SubtopicNew /> : null}
+       {subtopicLinks ? <SubtopicNew /> : null  }
     </div>
   )
 }

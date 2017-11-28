@@ -1,22 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react'
+import {createTopic, addTopic} from '../actions/topics'
+import { Route, Redirect } from "react-router-dom";
 
 
 class TopicNew extends React.Component {
 
   state = {
-    name: ''
+    name: '',
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // Destructure addMovie and history from the components props
-    //const { addTopic, history } = this.props;
-    // Create the movie with the Redux action
-    //addTopic(this.state);
-    // redirect to /movies route
-    //history.push('/movies')
+    this.props.createTopic(this.state)
+    this.setState({
+      redirectToSubtopic: true
+    })
   }
 
   handleOnChange = event => {
@@ -26,6 +26,7 @@ class TopicNew extends React.Component {
   }
 
   render(){
+
     return (
       <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
         <input
@@ -37,5 +38,12 @@ class TopicNew extends React.Component {
     );
   }
 }
-export default TopicNew
-//export default connect(null, { addTopic })(TopicNew)
+
+function mapDispatchToProps(dispatch){
+  return{
+    createTopic: (params) => {
+      dispatch(createTopic(params))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps )(TopicNew)

@@ -11,6 +11,17 @@ export default class RailsApi {
     ).then(res => res.json())
   }
 
+  static createTopic(params) {
+    return fetch(`http://localhost:3000/api/v1/topics/`, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json())
+  }
+
   static createArtifact(params) {
     return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics/${params.subtopic_id}/artifacts`, {
       method: 'post',
@@ -23,7 +34,6 @@ export default class RailsApi {
   }
 
   static createSubtopic(params) {
-    console.log(params)
     return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics`, {
       method: 'post',
       headers: {

@@ -27,8 +27,28 @@ export function selectTopic(topic) {
   }
 }
 
+export function addTopic(topic){
+  return{
+    type: "ADD_TOPIC",
+    payload: topic
+  }
+}
+
+export function addSubtopic(subtopic){
+  return{
+    type: "ADD_SUBTOPIC",
+    payload: subtopic
+  }
+}
+
+export function createTopic(params){
+  return function(dispatch){
+    RailsApi.createTopic(params).then(json => dispatch(addTopic(json)))
+  }
+}
+
 export function createSubtopic(params){
   return function(dispatch){
-    RailsApi.createSubtopic(params)
+    RailsApi.createSubtopic(params).then(json => dispatch(addSubtopic(json)))
   }
 }

@@ -19,11 +19,11 @@ class TopicContainer extends Component {
   render() {
     return (
       <div>
-        <Route exaxt path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
+        <Route path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
         <Route exact path={this.props.match.url} render={() => (
           <div>
             <TopicList topics={this.props.topics} onSelect={this.props.onSelect}/>
-            <TopicNew />
+            <TopicNew topic={this.props.selectTopic}/>
             <TopicShow topic={this.props.selectTopic} />
           </div>
         )}/>
@@ -37,7 +37,7 @@ class TopicContainer extends Component {
     return {
       topics: state.topics.topics,
       selectTopic: state.topics.selectTopic,
-      isLoading: state.isLoading
+      isLoading: state.isLoading,
     };
   }
 

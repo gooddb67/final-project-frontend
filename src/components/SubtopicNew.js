@@ -10,7 +10,8 @@ class SubtopicNew extends React.Component {
 
   state = {
     name: '',
-    topic_id: this.props.selectTopic
+    topic_id: this.props.selectTopic,
+    redirectToSubtopic: false
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,6 +21,8 @@ class SubtopicNew extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault()
     this.props.createSubtopic(this.state);
+
+    this.setState({redirectToSubtopic: true})
   }
 
   handleOnChange = event => {
