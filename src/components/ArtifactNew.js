@@ -5,7 +5,7 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
 const CLOUDINARY_UPLOAD_PRESET = 'u51cllhb';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dyb2wepuc/upload';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dyb2wepuc/upload/';
 
 class ArtifactNew extends React.Component {
 
@@ -44,10 +44,14 @@ class ArtifactNew extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createArtifact(this.state);
-    this.setState({
-      url: ''
-    })
+      if (this.state.media !== '' && this.state.url !== ''){
+      this.props.createArtifact(this.state);
+      this.setState({
+        url: ''
+      })
+    }else{
+      console.log('all fields required')
+    }
   }
 
   handleMediaChange = event => {

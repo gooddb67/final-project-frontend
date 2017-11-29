@@ -21,10 +21,14 @@ class SubtopicNew extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.createSubtopic(this.state);
-    this.setState({
-      name: ''
-    })
+      if (this.state.name !== ''){
+      this.props.createSubtopic(this.state);
+      this.setState({
+        name: ''
+      })
+    }else{
+      console.log('fields cannot be blank')
+    }
   }
 
   handleOnChange = event => {

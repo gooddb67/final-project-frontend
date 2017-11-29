@@ -13,10 +13,14 @@ class TopicNew extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createTopic(this.state)
-    this.setState({
-      name: ''
-    })
+    if(this.state.name !== ''){
+      this.props.createTopic(this.state)
+      this.setState({
+        name: ''
+      })
+    }else{
+      console.log('fields cannot be blank')
+    }
   }
 
   handleOnChange = event => {
