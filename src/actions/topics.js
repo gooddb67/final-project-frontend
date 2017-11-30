@@ -41,9 +41,23 @@ export function addSubtopic(subtopic){
   }
 }
 
+export function deleteTopic(id){
+    return{
+    type: "DELETE_TOPIC",
+    payload: id
+  }
+}
+
 export function createTopic(params){
   return function(dispatch){
     RailsApi.createTopic(params).then(json => dispatch(addTopic(json)))
+  }
+}
+
+export function destroyTopicFromDb(params){
+  console.log("heheheh")
+  return function(dispatch){
+    RailsApi.deleteTopic(params).then(json => dispatch(deleteTopic(json)))
   }
 }
 

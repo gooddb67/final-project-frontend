@@ -11,7 +11,12 @@ import TopicNew from '../components/TopicNew'
         <Grid>
           <Grid.Row>
             <Grid.Column width={8}>
-              <TopicList topics={this.props.topics} onSelect={this.props.onSelect}/>
+              <TopicList
+                onDelete={this.props.onDelete}
+                topics={this.props.topics}
+                topic={this.props.selectTopic}
+                onSelect={this.props.onSelect}
+              />
               <TopicNew topic={this.props.selectTopic}/>
             </Grid.Column>
 

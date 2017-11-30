@@ -2,7 +2,7 @@ import React from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
-
+import { Embed } from 'semantic-ui-react'
 
 
 class ArtifactCard extends React.Component {

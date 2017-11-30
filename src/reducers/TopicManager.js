@@ -12,6 +12,9 @@ export default function TopicManager(state = { topics: [], isLoading: false, sel
       return { ...state, isLoading: true };
     case "SELECTED_TOPIC":
         return {...state, selectTopic: action.payload}
+    case "DELETE_TOPIC":
+      const topics = state.topics.filter(topic => topic.id !== action.id);
+      return {topics}
     default:
       return state;
   }
