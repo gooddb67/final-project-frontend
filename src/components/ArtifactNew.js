@@ -35,8 +35,11 @@ class ArtifactNew extends React.Component {
     }
 
     if (response.body.secure_url !== '') {
+      let responseArr =  response.body.secure_url.split('/')
+      let splicedResp = responseArr.splice(6,0, "w_285,h_285").join('/')
+
       this.setState({
-        url: response.body.secure_url
+        url: responseArr.join('/')
       });
     }
   });

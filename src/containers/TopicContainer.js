@@ -3,12 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchTopics, selectTopic } from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
-import TopicList from '../components/TopicList';
 import TopicShow from '../components/TopicShow'
 import TopicNew from '../components/TopicNew'
 import SubtopicShow from './SubtopicShow'
 import SubtopicNew from '../components/SubtopicNew'
-import { Grid } from 'semantic-ui-react'
 import TopicGrid from './TopicGrid'
 
 
