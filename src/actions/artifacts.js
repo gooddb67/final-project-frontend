@@ -28,6 +28,19 @@ export function addArtifact(artifact){
   }
 }
 
+export function addComment(comment){
+  return{
+    type: 'ADD_COMMENT',
+    payload: comment
+  }
+}
+
+export function createComment(params){
+  return function(dispatch){
+    RailsApi.createComment(params).then(json => dispatch(addComment(json)))
+  }
+}
+
 export function createArtifact(params){
   return function(dispatch){
     RailsApi.createArtifact(params).then(json => dispatch(addArtifact(json)))

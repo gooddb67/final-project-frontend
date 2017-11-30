@@ -44,6 +44,18 @@ export default class RailsApi {
     }).then(res => res.json())
   }
 
+  static createComment(params){
+    console.log("railsapi", params)
+    return fetch(`http://localhost:3000/api/v1/artifacts/${params.artifact_id}/comments`, {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json())
+  }
+
   static createSubtopic(params) {
     return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics`, {
       method: 'post',

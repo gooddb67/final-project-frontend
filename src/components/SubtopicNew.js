@@ -12,7 +12,6 @@ class SubtopicNew extends React.Component {
   state = {
     name: '',
     topic_id: this.props.selectTopic,
-    redirectToSubtopic: false
   }
 
   componentWillReceiveProps(nextProps) {

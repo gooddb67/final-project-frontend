@@ -55,7 +55,6 @@ export function createTopic(params){
 }
 
 export function destroyTopicFromDb(params){
-  console.log("heheheh")
   return function(dispatch){
     RailsApi.deleteTopic(params).then(json => dispatch(deleteTopic(json)))
   }
