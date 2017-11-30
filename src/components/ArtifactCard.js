@@ -2,14 +2,15 @@ import React from 'react'
 import { Segment } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
-import { Embed } from 'semantic-ui-react'
 import {Grid} from 'semantic-ui-react'
+import { Button, Comment, Form } from 'semantic-ui-react'
 
 class ArtifactCard extends React.Component {
 
-  // handleClick = () => {
-  //   this.props.onSelect(this.props.topic)
-  // }
+  state = {
+    input: ''
+  }
+
    mediaRender(){
     if (this.props.artifact.media === 'Image') {
       return renderHTML(`<img src="${this.props.artifact.url}" />`)
@@ -20,18 +21,32 @@ class ArtifactCard extends React.Component {
     }
   }
 
+  handleChange = event =>{
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+
 
   render(){
-
-
     return(
-
-        <Segment compact={true}>
-          {this.mediaRender()}
-        </Segment>
-
-    )
+        <div>
+          <Segment attached='top' compact={true}>
+            {this.mediaRender()}
+          </Segment>
+          <Segment attached='bottom'>
+          <Form>
+            <Form.Group>
+              <Form.Input size="small"></Form.Input>
+              <Button size="small" floated="right">Save</Button>
+              <Button floated="right">View Notes</Button>
+            </Form.Group>
+          </Form>
+          </Segment>
+        </div>
+      )
+    }
   }
-}
 
 export default ArtifactCard;

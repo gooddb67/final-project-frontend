@@ -10,7 +10,7 @@ const ArtifactList = (props) => {
   <ArtifactCard key={artifact.id} artifact={artifact}/>
   );
   return (
-    <Grid celled relaxed verticalAlign>{renderArtifacts}</Grid>
+    <Grid celled='internally' verticalAlign>{renderArtifacts}</Grid>
   )
 }
 
