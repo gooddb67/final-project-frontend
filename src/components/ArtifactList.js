@@ -1,5 +1,6 @@
 import React from 'react';
 import ArtifactCard from './ArtifactCard'
+import {Grid} from 'semantic-ui-react'
 
 
 const ArtifactList = (props) => {
@@ -9,7 +10,7 @@ const ArtifactList = (props) => {
   <ArtifactCard key={artifact.id} artifact={artifact}/>
   );
   return (
-    <div>{renderArtifacts}</div>
+    <Grid celled relaxed verticalAlign>{renderArtifacts}</Grid>
   )
 }
 

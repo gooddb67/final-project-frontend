@@ -10,31 +10,16 @@ class SubtopicShow extends React.Component {
 
       const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
 
-    //   const subtopicArtifacts = subtopicArtifactsArray.map((artifact, index) => {
-    //     switch (artifact.media){
-    //       case "Video":
-    //          return `${artifact.url}`
-    //       case "Link":
-    //          return `<a href="${artifact.url}" target="_blank">${artifact.url}</a>`
-    //       case "Image":
-    //          return `<img src="${artifact.url}" />`
-    //     }
-    //     return subtopicArtifacts
-    //   }
-    //  )
-
-
-
     return(
-      <div>
-        <div>{this.props.subtopic.name}</div>
-        <ArtifactNew subtopic={this.props.subtopic}/>
-        <ArtifactList artifacts={subtopicArtifactsArray} />
-    </div>
+        <div>
+          <div>{this.props.subtopic.name}</div>
+          <ArtifactNew subtopic={this.props.subtopic}/>
+          <ArtifactList artifacts={subtopicArtifactsArray} />
+      </div>
 
-    )
+      )
+    }
   }
-}
 
 function mapStateToProps(state, ownProps){
   const subtopic = state.topics.selectTopic.subtopics.find(subtopic => subtopic.id == ownProps.match.params.subtopicId)

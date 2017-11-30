@@ -11,3 +11,14 @@ a {
   font-size: 20px;
   background-color: blue
 }
+/*
+.artifact-holder {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 4;
+  background-color: blue
+}
+
+.artifact {
+
+}*/

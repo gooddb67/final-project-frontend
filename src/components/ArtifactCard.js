@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import { Embed } from 'semantic-ui-react'
-
+import {Grid} from 'semantic-ui-react'
 
 class ArtifactCard extends React.Component {
 
@@ -25,11 +25,11 @@ class ArtifactCard extends React.Component {
 
 
     return(
-      <Container>
+
         <Segment compact={true}>
           {this.mediaRender()}
         </Segment>
-      </Container>
+
     )
   }
 }
