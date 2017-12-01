@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react'
 import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import {Grid} from 'semantic-ui-react'
-import { Button, Comment, Form } from 'semantic-ui-react'
+import { Button, Comment, Form, Modal } from 'semantic-ui-react'
 import { createComment } from "../actions/artifacts";
 import { connect } from 'react-redux';
 
@@ -25,6 +25,10 @@ class ArtifactCard extends React.Component {
     }
   }
 
+  artifactNotes(){
+
+  }
+
   handleChange = event =>{
     this.setState({
       content: event.target.value,
@@ -33,9 +37,19 @@ class ArtifactCard extends React.Component {
 
   handleSave = event =>{
     event.preventDefault();
-    this.props.createComment(this.state)
-    this.setState({
-      content: ''
+    if (this.state.content !== ''){
+      this.props.createComment(this.state)
+      this.setState({
+        content: ''
+      })
+    }else{
+      console.log('all fields required')
+    }
+  }
+
+  handleModal = event => {
+    return this.props.artifact.comments.map((comment, idx) => {
+      return <li key={idx}>{comment.content}</li>
     })
   }
 
@@ -51,7 +65,15 @@ class ArtifactCard extends React.Component {
             <Form.Group>
               <Form.Input value={this.state.content} onChange={this.handleChange} size="small"></Form.Input>
               <Button onClick={this.handleSave} size="small" floated="right">Save</Button>
-              <Button floated="right">View Notes</Button>
+              <Modal trigger ={
+                <Button onClick={this.handleModal} floated="right">View Notes</Button>}>
+                <Modal.Header>Artifact Notes</Modal.Header>
+                <Modal.Content>
+                  <ul>
+                    {this.handleModal()}
+                  </ul>
+                </Modal.Content>
+              </Modal>
             </Form.Group>
           </Form>
           </Segment>
