@@ -43,7 +43,7 @@ class ArtifactCard extends React.Component {
   render(){
     return(
         <div>
-          <Segment attached='top' compact={true}>
+          <Segment attached='top' textAlign="center" compact={true}>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
