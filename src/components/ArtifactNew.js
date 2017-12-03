@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 import {createArtifact} from '../actions/artifacts'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {Dropdown, Form, Menu} from 'semantic-ui-react'
 
 const CLOUDINARY_UPLOAD_PRESET = 'u51cllhb';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dyb2wepuc/upload/';
+
+const options = [
+  { key: 1, text: 'Link', value: 'Link' },
+  { key: 2, text: 'Video', value: 'Video' },
+  { key: 3, text: 'Image', value: 'Image' },
+]
 
 class ArtifactNew extends React.Component {
 
@@ -58,9 +65,11 @@ class ArtifactNew extends React.Component {
   }
 
   handleMediaChange = event => {
+    const value = event.target.innerText
     this.setState({
-      media: event.target.value
+      media: value
     });
+    console.log(this.state.media)
   }
 
   handleUrlChange = event => {
@@ -72,26 +81,23 @@ class ArtifactNew extends React.Component {
   render(){
     return (
       <div>
-        <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit} >
-          <select value={this.state.value} onChange={this.handleMediaChange}>
-            <option disabled value selected > -- select media type -- </option>
-            <option value="Video">Video</option>
-            <option value="Image">Image</option>
-            <option value="Link">Link</option>
-          </select>
+        <Form onSubmit={this.handleOnSubmit} >
+          <Menu compact>
+            <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
+          </Menu>
           <Dropzone
               multiple={false}
               accept="image/*"
               onDrop={this.onImageDrop.bind(this)}>
               <p>Drop an image or click to select a file to upload.</p>
           </Dropzone>
-          <input
+          <Form.Input
             type="text"
             onChange={this.handleUrlChange}
             value={this.state.url}
             placeholder="URL" />
-          <input type="submit" value="Add Artifact" />
-        </form>
+          <Form.Button type="submit" value="Add Artifact">Add Artifact</Form.Button>
+        </Form>
         <div>
 
           <div>

@@ -13,7 +13,6 @@ class App extends Component {
     return (
       <Container>
         <div>
-          <Header color='grey' as='h1'>Davey's Notetaking Application</Header>
           <Route exact path="/" render={() => <div>Home</div>} />
           <Route path='/topics' component={TopicContainer} />
         </div>

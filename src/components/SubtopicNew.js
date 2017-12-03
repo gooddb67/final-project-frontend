@@ -49,7 +49,7 @@ class SubtopicNew extends React.Component {
                 placeholder="Add Subtopic" />
               </Grid.Column>
               <Grid.Column>
-                <button className='submit-button submit-button-subtopic' type="submit" value="Add Topic">Submit</button>
+                <button className='submit-button submit-button-subtopic' type="submit" value="Add Topic">Add Subtopic</button>
               </Grid.Column>
             </Grid.Row>
           </Grid>

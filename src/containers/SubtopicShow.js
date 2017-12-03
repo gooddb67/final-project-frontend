@@ -4,16 +4,18 @@ import { fetchArtifacts } from "../actions/artifacts";
 import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
 import ArtifactFilter from '../components/ArtifactFilter'
+import {Segment, Header, Grid} from 'semantic-ui-react'
 
 class SubtopicShow extends React.Component {
 
-    render(){
+  render(){
 
-      const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
+    const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
 
     return(
         <div>
-          <div>{this.props.subtopic.name}</div>
+          <Header>{this.props.subtopic.name}</Header>
+
           <ArtifactNew subtopic={this.props.subtopic}/>
           <ArtifactFilter artifacts={subtopicArtifactsArray}/>
           <ArtifactList artifacts={subtopicArtifactsArray} />

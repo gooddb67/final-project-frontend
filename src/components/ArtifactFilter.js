@@ -1,7 +1,13 @@
 import React from 'react'
 import {filterArtifacts} from '../actions/artifacts'
 import { connect } from 'react-redux';
+import {Dropdown, Form, Menu} from 'semantic-ui-react'
 
+const filters = [
+  { key: 1, text: 'Link', value: 'Link' },
+  { key: 2, text: 'Video', value: 'Video' },
+  { key: 3, text: 'Image', value: 'Image' },
+]
 
 class ArtifactFilter extends React.Component {
 
@@ -10,24 +16,32 @@ class ArtifactFilter extends React.Component {
   }
 
   handleChange = (event) => {
-    var value = event.target.value;
+    var value = event.target.innerText;
     this.setState({
       value: value
     })
-    
+
     this.props.filterArtifacts(value)
   }
 //onClick={() => alert(item)}
   render(){
     return(
-    <form>
-      <select value={this.state.filter} onChange={(event) => this.handleChange(event)}>
-        <option disabled value selected > -- select filter -- </option>
-        <option value="Link">Link</option>
-        <option value="Video">Video</option>
-        <option value="Image">Image</option>
-      </select>
-    </form>
+      <Form>
+        <Menu compact>
+          <Dropdown placeholder="Filter Artifacts"
+            options={filters}
+            value={this.state.value}
+            onChange={(event) => this.handleChange(event)}/>
+        </Menu>
+      </Form>
+    // <form>
+    //   <select value={this.state.filter} onChange={(event) => this.handleChange(event)}>
+    //     <option disabled value selected > -- select filter -- </option>
+    //     <option value="Link">Link</option>
+    //     <option value="Video">Video</option>
+    //     <option value="Image">Image</option>
+    //   </select>
+    // </form>
     );
   }
 }
