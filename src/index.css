@@ -13,7 +13,19 @@ a {
 }
 
 .subtopic-card-container{
-  padding: 15px
+  padding: 15px;
+}
+
+.subtopic-header{
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 25px
+}
+
+.subtopic-header h1{
+  font-family: 'Varela Round', sans-serif;
+  margin-left: 3px
 }
 
 .topic-card {
@@ -38,6 +50,27 @@ a {
 
 .topic-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.submit-button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.submit-button-topic {
+  border: 2px solid #b1b1cf;
+}
+
+.submit-button-subtopic {
+  border: 2px solid #e0dcca;
 }
 /*
 .artifact-holder {

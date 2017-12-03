@@ -43,7 +43,7 @@ class TopicNew extends React.Component {
               placeholder="Add Topic" />
             </Grid.Column>
             <Grid.Column>
-              <Form.Button color='grey' type="submit" value="Add Topic">Submit</Form.Button>
+              <button className='submit-button submit-button-topic' type="submit" value="Add Topic">Submit</button>
             </Grid.Column>
           </Grid.Row>
         </Grid>

@@ -21,7 +21,9 @@ const TopicShow = (props) => {
 
   return (
     <div>
-      <h2>{props.topic ? props.topic.name : null }</h2>
+      <div className='subtopic-header'>
+        <h1>{props.topic ? props.topic.name : null }</h1>
+      </div>
        {subtopicLinks ? <SubtopicNew /> : null  }
        <Grid columns='two'>{subtopicLinks}</Grid>
     </div>
