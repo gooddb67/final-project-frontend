@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Form } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react'
 import {createSubtopic} from '../actions/topics'
 import { Route, Redirect } from 'react-router'
 
@@ -38,17 +38,25 @@ class SubtopicNew extends React.Component {
 
   render(){
     return (
-      <form onSubmit={this.handleOnSubmit} >
-        <Form.Input
-          type="text"
-          onChange={this.handleOnChange}
-          value={this.state.name}
-          placeholder="Add Subtopic" />
-        <Form.Button><input type="submit" value="Add Subtopic"/></Form.Button>
-      </form>
-    );
+      <Form onSubmit={this.handleOnSubmit} >
+        <Grid columns='two'>
+          <Grid.Row>
+            <Grid.Column>
+              <Form.Input
+                type="text"
+                onChange={this.handleOnChange}
+                value={this.state.name}
+                placeholder="Add Subtopic" />
+              </Grid.Column>
+              <Grid.Column>
+                <Form.Button color='grey' type="submit" value="Add Subtopic">Submit</Form.Button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Form>
+      );
+    }
   }
-}
 
 function mapStateToProps(state) {
   return {

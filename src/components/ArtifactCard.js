@@ -4,8 +4,9 @@ import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import {Grid} from 'semantic-ui-react'
 import { Button, Comment, Form, Modal } from 'semantic-ui-react'
-import { createComment } from "../actions/artifacts";
+import { createComment, deleteComment } from "../actions/artifacts";
 import { connect } from 'react-redux';
+import { Divider } from 'semantic-ui-react'
 
 
 class ArtifactCard extends React.Component {
@@ -23,10 +24,6 @@ class ArtifactCard extends React.Component {
     }else{
       return renderHTML(this.props.artifact.url)
     }
-  }
-
-  artifactNotes(){
-
   }
 
   handleChange = event =>{
@@ -49,10 +46,14 @@ class ArtifactCard extends React.Component {
 
   handleModal = event => {
     return this.props.artifact.comments.map((comment, idx) => {
-      return <li key={idx}>{comment.content}</li>
+      return <p key={idx}>{comment.content} <Divider /></p>
     })
   }
 
+  handleDelete = event => {
+    event.preventDefault()
+
+  }
 
   render(){
     return(
@@ -67,11 +68,13 @@ class ArtifactCard extends React.Component {
               <Button onClick={this.handleSave} size="small" floated="right">Save</Button>
               <Modal trigger ={
                 <Button onClick={this.handleModal} floated="right">View Notes</Button>}>
+                {/* <Button onClick={this.handleDelete} floated="right">Delete Artifact</Button>}> */}
+
                 <Modal.Header>Artifact Notes</Modal.Header>
                 <Modal.Content>
-                  <ul>
+                  <div>
                     {this.handleModal()}
-                  </ul>
+                  </div>
                 </Modal.Content>
               </Modal>
             </Form.Group>
@@ -79,6 +82,12 @@ class ArtifactCard extends React.Component {
           </Segment>
         </div>
       )
+    }
+  }
+
+  function mapStateToProps(state){
+    return{
+      storeArtifacts: state.artifacts.artifacts
     }
   }
 
@@ -90,4 +99,4 @@ class ArtifactCard extends React.Component {
     }
   }
 
-  export default connect(null, mapDispatchToProps)(ArtifactCard)
+  export default connect(mapStateToProps, mapDispatchToProps)(ArtifactCard)

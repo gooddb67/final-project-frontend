@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchArtifacts } from "../actions/artifacts";
 import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
+import ArtifactFilter from '../components/ArtifactFilter'
 
 class SubtopicShow extends React.Component {
 
@@ -14,6 +15,7 @@ class SubtopicShow extends React.Component {
         <div>
           <div>{this.props.subtopic.name}</div>
           <ArtifactNew subtopic={this.props.subtopic}/>
+          <ArtifactFilter artifacts={subtopicArtifactsArray}/>
           <ArtifactList artifacts={subtopicArtifactsArray} />
       </div>
 

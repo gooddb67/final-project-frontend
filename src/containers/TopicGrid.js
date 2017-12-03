@@ -8,23 +8,17 @@ import TopicNew from '../components/TopicNew'
 
   render(){
     return (
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <TopicList
-                onDelete={this.props.onDelete}
-                topics={this.props.topics}
-                topic={this.props.selectTopic}
-                onSelect={this.props.onSelect}
-              />
+            <div>
               <TopicNew topic={this.props.selectTopic}/>
-            </Grid.Column>
+                <TopicList
+                  onDelete={this.props.onDelete}
+                  topics={this.props.topics}
+                  topic={this.props.selectTopic}
+                  onSelect={this.props.onSelect}
+                />
 
-            <Grid.Column width={8}>
-              <TopicShow topic={this.props.selectTopic} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+            <TopicShow topic={this.props.selectTopic} />
+          </div>
       )
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Form } from 'semantic-ui-react'
+import { Form, Grid, Button } from 'semantic-ui-react'
 import {createTopic, addTopic} from '../actions/topics'
 import { Route, Redirect } from "react-router-dom";
 
@@ -32,14 +32,22 @@ class TopicNew extends React.Component {
   render(){
 
     return (
-      <form onSubmit={this.handleOnSubmit} >
-        <Form.Input
-          type="text"
-          onChange={this.handleOnChange}
-          value={this.state.name}
-          placeholder="Add Topic" />
-        <Form.Button><input type="submit" value="Add Topic" /></Form.Button>
-      </form>
+    <Form onSubmit={this.handleOnSubmit} >
+      <Grid columns='two'>
+        <Grid.Row>
+          <Grid.Column>
+            <Form.Input
+              type="text"
+              onChange={this.handleOnChange}
+              value={this.state.name}
+              placeholder="Add Topic" />
+            </Grid.Column>
+            <Grid.Column>
+              <Form.Button color='grey' type="submit" value="Add Topic">Submit</Form.Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Form>
     );
   }
 }

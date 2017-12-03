@@ -35,9 +35,36 @@ export function addComment(comment){
   }
 }
 
+export function filterArtifacts(filter){
+  return{
+    type: 'FILTER_ARTIFACTS',
+    filter: filter
+  }
+}
+
+export function selectArtifact(artifact) {
+  return{
+    type: "SELECTED_ARTIFACT",
+    payload: artifact
+  }
+}
+
+export function deleteArtifact(artifact){
+  return{
+    type: 'DELETE_ARTIFACT',
+    payload: artifact
+  }
+}
+
 export function createComment(params){
   return function(dispatch){
     RailsApi.createComment(params).then(json => dispatch(addComment(json)))
+  }
+}
+
+export function deleteArtifactfromDb(params){
+  return function(dispatch){
+    RailsApi.deleteArtifact(params).then(json => dispatch(deleteArtifact(json)))
   }
 }
 
