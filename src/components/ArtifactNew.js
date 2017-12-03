@@ -79,8 +79,31 @@ class ArtifactNew extends React.Component {
   }
 
   render(){
+
+    const isImage = this.state.media;
+
     return (
+    <div>
+      {isImage !== 'Image' ? (
+
       <div>
+        <Form onSubmit={this.handleOnSubmit} >
+          <Menu compact>
+            <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
+          </Menu>
+          <Form.Input
+            type="text"
+            onChange={this.handleUrlChange}
+            value={this.state.url}
+            placeholder="URL" />
+          <Form.Button type="submit" value="Add Artifact">Add Artifact</Form.Button>
+        </Form>
+      </div> )
+
+     :
+
+
+      (<div>
         <Form onSubmit={this.handleOnSubmit} >
           <Menu compact>
             <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
@@ -98,21 +121,21 @@ class ArtifactNew extends React.Component {
             placeholder="URL" />
           <Form.Button type="submit" value="Add Artifact">Add Artifact</Form.Button>
         </Form>
-        <div>
-
-          <div>
-            {this.state.uploadedFileCloudinaryUrl === '' ? null :
-            <div>
-              <p>{this.state.uploadedFile.name}</p>
-              <img src={this.state.uploadedFileCloudinaryUrl} />
-            </div>}
-          </div>
-        </div>
-
-      </div>//close return
-    );
+      </div>) }
+    </div>
+    )
   }
 }
+
+{/* <div>
+  {this.state.url === '' ? null :
+  <div>
+    <p>{this.state.uploadedFile.name}</p>
+    <img src={this.state.url} />
+  </div>}
+</div> */}
+
+
 
 function mapDispatchToProps(dispatch){
   return{

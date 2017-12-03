@@ -15,10 +15,18 @@ class SubtopicShow extends React.Component {
     return(
         <div>
           <Header>{this.props.subtopic.name}</Header>
-
-          <ArtifactNew subtopic={this.props.subtopic}/>
-          <ArtifactFilter artifacts={subtopicArtifactsArray}/>
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={8}>
+                <ArtifactNew subtopic={this.props.subtopic}/>
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <ArtifactFilter artifacts={subtopicArtifactsArray}/>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
           <ArtifactList artifacts={subtopicArtifactsArray} />
+
       </div>
 
       )
