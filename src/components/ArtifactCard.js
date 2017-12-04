@@ -4,10 +4,11 @@ import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import {Grid} from 'semantic-ui-react'
 import { Button, Comment, Form, Modal } from 'semantic-ui-react'
-import { createComment, deleteComment, deleteArtifactFromDb } from "../actions/artifacts";
+import { createComment, deleteComment, deleteArtifactFromDb, addComment } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
-import {HuePicker} from 'react-color'
+import {HuePicker, Github} from 'react-color'
+import FaTrashO from 'react-icons/lib/fa/trash-o'
 
 
 
@@ -39,6 +40,7 @@ class ArtifactCard extends React.Component {
     event.preventDefault();
     if (this.state.content !== ''){
       this.props.createComment(this.state)
+      this.props.addComment(this.state)
       this.setState({
         content: ''
       })
@@ -54,24 +56,20 @@ class ArtifactCard extends React.Component {
   }
 
   handleChangeComplete = (color) => {
-
-  this.setState({ artifactColor: color.hex });
-
-};
+    this.setState({ artifactColor: color.hex });
+  };
 
   handleDelete = event => {
     event.preventDefault()
     this.props.deleteArtifactFromDb(this.props.artifact.id)
   }
 
-
-
   render(){
-    const artifactBackground = {backgroundColor: this.state.artifactColor}
+    //const artifactBackground = {backgroundColor: this.state.artifactColor}
 
     return(
         <div className='artifact-container'>
-          <Segment style={artifactBackground} attached='top' textAlign="center" compact>
+          <Segment attached='top' textAlign="center" compact>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
@@ -79,6 +77,7 @@ class ArtifactCard extends React.Component {
             <Form.Group>
               <Form.Input value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small"></Form.Input>
               <Button onClick={this.handleSave} size="small" floated="right">Save</Button>
+
               <Modal trigger ={
                 <Button onClick={this.handleModal} color='green' floated="right">View Notes</Button>}>
                 <Modal.Header>Artifact Notes</Modal.Header>
@@ -88,13 +87,10 @@ class ArtifactCard extends React.Component {
                   </div>
                 </Modal.Content>
               </Modal>
-              <Button float='right' onClick={this.handleDelete} color='red' floated="right">X</Button>
+              <FaTrashO size={35} onClick={this.handleDelete}/>
             </Form.Group>
           </Form>
-          <HuePicker
-            color={this.state.artifactColor}
-            onChangeComplete={ this.handleChangeComplete }
-         />
+
           </Segment>
         </div>
       )
@@ -114,6 +110,9 @@ class ArtifactCard extends React.Component {
       },
       deleteArtifactFromDb: (artifact) => {
         dispatch(deleteArtifactFromDb(artifact))
+      },
+      addComment: (comment) => {
+        dispatch(addComment(comment))
       }
     }
   }

@@ -42,7 +42,7 @@ export function filterArtifacts(filter){
   }
 }
 
-export function selectArtifact(artifact) {
+export function selectedArtifact(artifact) {
   return{
     type: "SELECTED_ARTIFACT",
     payload: artifact
@@ -58,7 +58,7 @@ export function deleteArtifact(id){
 
 export function createComment(params){
   return function(dispatch){
-    RailsApi.createComment(params).then(json => dispatch(addComment(json)))
+    RailsApi.createComment(params)
   }
 }
 

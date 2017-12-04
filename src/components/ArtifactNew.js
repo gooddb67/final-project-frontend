@@ -12,7 +12,6 @@ const options = [
   { key: 1, text: 'Link', value: 'Link' },
   { key: 2, text: 'Video', value: 'Video' },
   { key: 3, text: 'Image', value: 'Image' },
-  // { key: 4, text: 'Select Media Type', value: 'Select Media Type', disabled: true, defaultValue: true}
 ]
 
 class ArtifactNew extends React.Component {

@@ -32,14 +32,6 @@ class ArtifactFilter extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}/>
       </Form>
-    // <form>
-    //   <select value={this.state.filter} onChange={(event) => this.handleChange(event)}>
-    //     <option disabled value selected > -- select filter -- </option>
-    //     <option value="Link">Link</option>
-    //     <option value="Video">Video</option>
-    //     <option value="Image">Image</option>
-    //   </select>
-    // </form>
     );
   }
 }
