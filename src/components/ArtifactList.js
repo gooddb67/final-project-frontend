@@ -8,24 +8,32 @@ const ArtifactList = (props) => {
 
   const renderLinks = props.artifacts.filter((artifact, idx) => {
     return artifact.media === 'Link'
-  }).map(artifact => <ArtifactCard key={artifact.id} artifact={artifact}/>)
+  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column>)
 
   const renderVideos = props.artifacts.filter((artifact, idx) => {
     return artifact.media === 'Video'
-  }).map(artifact => <ArtifactCard key={artifact.id} artifact={artifact}/> )
+  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column> )
 
   const renderImages = props.artifacts.filter((artifact, idx) => {
     return artifact.media === 'Image'
-  }).map(artifact => <ArtifactCard key={artifact.id} artifact={artifact}/> )
+  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column> )
 
-  // const renderArtifacts = props.artifacts.map((artifact, idx) =>
-  // <ArtifactCard key={artifact.id} artifact={artifact}/>
-  // );
   return (
       <div>
-        <div>{renderLinks}</div>
-        <div>{renderVideos}</div>
-        <div>{renderImages}</div>
+        <div>
+          <h1>Links</h1>
+          <Grid columns='2'>{renderLinks}</Grid>
+        </div>
+
+        <div>
+          <h1>Videos</h1>
+          <Grid columns='1'>{renderVideos}</Grid>
+        </div>
+
+        <div>
+          <h1>Images</h1>
+          <Grid columns='2'>{renderImages}</Grid>
+        </div>
       </div>
     )
   }

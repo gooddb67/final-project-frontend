@@ -67,4 +67,10 @@ export default class RailsApi {
     }).then(res => res.json())
   }
 
+  static deleteArtifact(params){
+    return fetch(`http://localhost:3000/api/v1/artifacts/${params}`, {
+      method: 'delete'
+    }).then(res => res.json())
+  }
+
 }

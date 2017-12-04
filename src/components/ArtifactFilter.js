@@ -27,12 +27,10 @@ class ArtifactFilter extends React.Component {
   render(){
     return(
       <Form>
-        <Menu compact>
-          <Dropdown placeholder="Filter Artifacts"
-            options={filters}
-            value={this.state.value}
-            onChange={(event) => this.handleChange(event)}/>
-        </Menu>
+        <Dropdown text= 'Filter Artifacts'
+          options={filters}
+          value={this.state.value}
+          onChange={this.handleChange}/>
       </Form>
     // <form>
     //   <select value={this.state.filter} onChange={(event) => this.handleChange(event)}>

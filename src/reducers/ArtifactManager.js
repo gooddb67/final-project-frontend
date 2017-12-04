@@ -13,6 +13,9 @@ export default function ArtifactManager(state = {artifacts: []}, action){
     case "FILTER_ARTIFACTS":
       const filteredArtifacts = state.artifacts.filter(artifact => artifact.media === action.filter)
       return {...state, artifacts: filteredArtifacts}
+    case "DELETE_ARTIFACT":
+        const remainingArtifacts = state.artifacts.filter(artifact => artifact.id !== action.payload)
+        return {...state, artifacts: remainingArtifacts}
     default:
       return state;
     }

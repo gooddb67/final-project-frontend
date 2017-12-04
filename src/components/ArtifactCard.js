@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import {Grid} from 'semantic-ui-react'
 import { Button, Comment, Form, Modal } from 'semantic-ui-react'
-import { createComment, deleteComment } from "../actions/artifacts";
+import { createComment, deleteComment, deleteArtifactFromDb } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
 
@@ -52,24 +52,23 @@ class ArtifactCard extends React.Component {
 
   handleDelete = event => {
     event.preventDefault()
-
+    console.log('ArtifactCard', this.props.artifact.id)
+    this.props.deleteArtifactFromDb(this.props.artifact.id)
   }
 
   render(){
     return(
         <div>
-          <Segment attached='top' textAlign="center" compact={true}>
+          <Segment attached='top' textAlign="center" compact>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
           <Form>
             <Form.Group>
-              <Form.Input value={this.state.content} onChange={this.handleChange} size="small"></Form.Input>
+              <Form.Input value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small"></Form.Input>
               <Button onClick={this.handleSave} size="small" floated="right">Save</Button>
               <Modal trigger ={
-                <Button onClick={this.handleModal} floated="right">View Notes</Button>}>
-                {/* <Button onClick={this.handleDelete} floated="right">Delete Artifact</Button>}> */}
-
+                <Button onClick={this.handleModal} color='green' floated="right">View Notes</Button>}>
                 <Modal.Header>Artifact Notes</Modal.Header>
                 <Modal.Content>
                   <div>
@@ -77,6 +76,7 @@ class ArtifactCard extends React.Component {
                   </div>
                 </Modal.Content>
               </Modal>
+              <Button float='right' onClick={this.handleDelete} color='red' floated="right">Delete Artifact</Button>
             </Form.Group>
           </Form>
           </Segment>
@@ -95,6 +95,9 @@ class ArtifactCard extends React.Component {
     return{
       createComment: (params) => {
         dispatch(createComment(params))
+      },
+      deleteArtifactFromDb: (artifact) => {
+        dispatch(deleteArtifactFromDb(artifact))
       }
     }
   }

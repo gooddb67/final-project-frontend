@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchArtifacts } from "../actions/artifacts";
+import {fetchTopics} from "../actions/topics"
 import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
 import ArtifactFilter from '../components/ArtifactFilter'
@@ -8,8 +9,8 @@ import {Segment, Header, Grid} from 'semantic-ui-react'
 
 class SubtopicShow extends React.Component {
 
-  render(){
 
+  render(){
     const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
 
     return(
@@ -17,10 +18,10 @@ class SubtopicShow extends React.Component {
           <Header>{this.props.subtopic.name}</Header>
           <Grid>
             <Grid.Row>
-              <Grid.Column width={8}>
+              <Grid.Column width={12}>
                 <ArtifactNew subtopic={this.props.subtopic}/>
               </Grid.Column>
-              <Grid.Column width={8}>
+              <Grid.Column width={4}>
                 <ArtifactFilter artifacts={subtopicArtifactsArray}/>
               </Grid.Column>
             </Grid.Row>
@@ -47,6 +48,9 @@ function mapDispatchToProps(dispatch){
   return{
     fetchArtifacts: () => {
       dispatch(fetchArtifacts())
+    },
+    fetchTopics: () => {
+      dispatch(fetchTopics())
     }
   }
 }

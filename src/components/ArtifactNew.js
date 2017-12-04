@@ -12,6 +12,7 @@ const options = [
   { key: 1, text: 'Link', value: 'Link' },
   { key: 2, text: 'Video', value: 'Video' },
   { key: 3, text: 'Image', value: 'Image' },
+  // { key: 4, text: 'Select Media Type', value: 'Select Media Type', disabled: true, defaultValue: true}
 ]
 
 class ArtifactNew extends React.Component {
@@ -88,9 +89,9 @@ class ArtifactNew extends React.Component {
 
       <div>
         <Form onSubmit={this.handleOnSubmit} >
-          <Menu compact>
-            <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
-          </Menu>
+
+            <Dropdown text= 'Media Type' options={options} value={this.state.media} onChange={this.handleMediaChange}/>
+
           <Form.Input
             type="text"
             onChange={this.handleUrlChange}
@@ -105,9 +106,7 @@ class ArtifactNew extends React.Component {
 
       (<div>
         <Form onSubmit={this.handleOnSubmit} >
-          <Menu compact>
-            <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
-          </Menu>
+          <Dropdown placeholder="Add Media Type" options={options} value={this.state.media} onChange={this.handleMediaChange}/>
           <Dropzone
               multiple={false}
               accept="image/*"

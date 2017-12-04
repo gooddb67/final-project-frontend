@@ -49,10 +49,10 @@ export function selectArtifact(artifact) {
   }
 }
 
-export function deleteArtifact(artifact){
+export function deleteArtifact(id){
   return{
     type: 'DELETE_ARTIFACT',
-    payload: artifact
+    payload: id
   }
 }
 
@@ -62,9 +62,9 @@ export function createComment(params){
   }
 }
 
-export function deleteArtifactfromDb(params){
+export function deleteArtifactFromDb(params){
   return function(dispatch){
-    RailsApi.deleteArtifact(params).then(json => dispatch(deleteArtifact(json)))
+    RailsApi.deleteArtifact(params).then(json => dispatch(deleteArtifact(json.id)))
   }
 }
 
