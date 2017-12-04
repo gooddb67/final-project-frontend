@@ -1,4 +1,4 @@
-export default function ArtifactManager(state = {artifacts: [], currentArtifact: {}, selectedArtifact: {}}, action){
+export default function ArtifactManager(state = {artifacts: [], currentArtifact: {}}, action){
   switch (action.type) {
     case "ADD_ARTIFACT":
       return {...state, artifacts: state.artifacts.concat(action.payload)}
@@ -17,8 +17,6 @@ export default function ArtifactManager(state = {artifacts: [], currentArtifact:
     case "DELETE_ARTIFACT":
         const remainingArtifacts = state.artifacts.filter(artifact => artifact.id !== action.payload)
         return {...state, artifacts: remainingArtifacts}
-    case "SELECTED_ARTIFACT":
-      return {...state, selectedArtifact: action.payload}
     default:
       return state;
     }

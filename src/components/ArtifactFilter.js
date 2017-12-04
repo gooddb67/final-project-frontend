@@ -12,7 +12,7 @@ const filters = [
 class ArtifactFilter extends React.Component {
 
   state = {
-    value: ''
+    value: '',
   }
 
   handleChange = (event) => {
@@ -20,10 +20,8 @@ class ArtifactFilter extends React.Component {
     this.setState({
       value: value
     })
-
-    this.props.filterArtifacts(value)
   }
-//onClick={() => alert(item)}
+
   render(){
     return(
       <Form>

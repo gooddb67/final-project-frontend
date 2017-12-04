@@ -7,17 +7,13 @@ import { Button, Comment, Form, Modal } from 'semantic-ui-react'
 import { createComment, deleteComment, deleteArtifactFromDb, addComment } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
-import {HuePicker, Github} from 'react-color'
 import FaTrashO from 'react-icons/lib/fa/trash-o'
-
-
 
 class ArtifactCard extends React.Component {
 
   state = {
     content: '',
-    artifact_id: this.props.artifact.id,
-    artifactColor: '#fff'
+    artifact_id: this.props.artifact.id
   }
 
    mediaRender(){
@@ -27,6 +23,16 @@ class ArtifactCard extends React.Component {
       return renderHTML(`<a href="${this.props.artifact.url}"target="_blank"> ${this.props.artifact.url} </a>`)
     }else{
       return renderHTML(this.props.artifact.url)
+    }
+  }
+
+  backgroundColor(){
+    if (this.props.artifact.media === 'Image'){
+      return '#c1e1c5'
+    } else if (this.props.artifact.media === 'Link'){
+      return '#c4def6'
+    } else{
+      return '#fef3bd'
     }
   }
 
@@ -55,21 +61,17 @@ class ArtifactCard extends React.Component {
     })
   }
 
-  handleChangeComplete = (color) => {
-    this.setState({ artifactColor: color.hex });
-  };
-
   handleDelete = event => {
     event.preventDefault()
     this.props.deleteArtifactFromDb(this.props.artifact.id)
   }
 
   render(){
-    //const artifactBackground = {backgroundColor: this.state.artifactColor}
+    const artifactBackground = {backgroundColor: this.backgroundColor()}
 
     return(
         <div className='artifact-container'>
-          <Segment attached='top' textAlign="center" compact>
+          <Segment style={artifactBackground} attached='top' textAlign="center" compact>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>

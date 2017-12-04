@@ -2,6 +2,7 @@ import React from 'react';
 import ArtifactCard from './ArtifactCard'
 import {Grid} from 'semantic-ui-react'
 
+const linkColor = '#c4def6'
 
 const ArtifactList = (props) => {
 
@@ -26,14 +27,15 @@ const ArtifactList = (props) => {
         </div>
 
         <div>
+          <h1>Images</h1>
+          <Grid columns='2'>{renderImages}</Grid>
+        </div>
+
+        <div>
           <h1>Videos</h1>
           <Grid columns='1'>{renderVideos}</Grid>
         </div>
 
-        <div>
-          <h1>Images</h1>
-          <Grid columns='2'>{renderImages}</Grid>
-        </div>
       </div>
     )
   }

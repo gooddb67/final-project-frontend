@@ -31,7 +31,7 @@ a {
 }
 
 .ui[class*="top attached"].segment {
-  
+
 }
 
 .topic-card {
@@ -81,4 +81,9 @@ a {
 
 .submit-button-subtopic {
   border: 2px solid #e0dcca;
+}
+
+.artifact-container a {
+  font-size: 18px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
 }

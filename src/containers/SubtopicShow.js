@@ -9,6 +9,9 @@ import {Segment, Header, Grid} from 'semantic-ui-react'
 
 class SubtopicShow extends React.Component {
 
+  state = {
+    filteredArtifacts: null
+  }
 
   render(){
     const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )

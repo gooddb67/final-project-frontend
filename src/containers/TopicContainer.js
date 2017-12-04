@@ -15,7 +15,7 @@ class TopicContainer extends Component {
   componentDidMount(){
      this.props.fetchTopics()
      this.props.fetchArtifacts()
-  }
+   }
 
   render() {
     return (
