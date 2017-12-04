@@ -7,13 +7,16 @@ import { Button, Comment, Form, Modal } from 'semantic-ui-react'
 import { createComment, deleteComment, deleteArtifactFromDb } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
+import {HuePicker} from 'react-color'
+
 
 
 class ArtifactCard extends React.Component {
 
   state = {
     content: '',
-    artifact_id: this.props.artifact.id
+    artifact_id: this.props.artifact.id,
+    artifactColor: '#fff'
   }
 
    mediaRender(){
@@ -50,16 +53,25 @@ class ArtifactCard extends React.Component {
     })
   }
 
+  handleChangeComplete = (color) => {
+
+  this.setState({ artifactColor: color.hex });
+
+};
+
   handleDelete = event => {
     event.preventDefault()
-    console.log('ArtifactCard', this.props.artifact.id)
     this.props.deleteArtifactFromDb(this.props.artifact.id)
   }
 
+
+
   render(){
+    const artifactBackground = {backgroundColor: this.state.artifactColor}
+
     return(
-        <div>
-          <Segment attached='top' textAlign="center" compact>
+        <div className='artifact-container'>
+          <Segment style={artifactBackground} attached='top' textAlign="center" compact>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
@@ -76,9 +88,13 @@ class ArtifactCard extends React.Component {
                   </div>
                 </Modal.Content>
               </Modal>
-              <Button float='right' onClick={this.handleDelete} color='red' floated="right">Delete Artifact</Button>
+              <Button float='right' onClick={this.handleDelete} color='red' floated="right">X</Button>
             </Form.Group>
           </Form>
+          <HuePicker
+            color={this.state.artifactColor}
+            onChangeComplete={ this.handleChangeComplete }
+         />
           </Segment>
         </div>
       )

@@ -22,7 +22,7 @@ class ArtifactNew extends React.Component {
       url: '',
       topic_id: this.props.subtopic.topic_id,
       subtopic_id: this.props.subtopic.id,
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
     }
 
   onImageDrop(files) {
