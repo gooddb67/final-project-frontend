@@ -9,6 +9,7 @@ import SubtopicShow from './SubtopicShow'
 import SubtopicNew from '../components/SubtopicNew'
 import TopicGrid from './TopicGrid'
 import {Header} from 'semantic-ui-react'
+import Chart from '../components/Chart'
 
 
 class TopicContainer extends Component {
@@ -30,6 +31,7 @@ class TopicContainer extends Component {
                 onDelete={this.props.onDelete}
                 onSelect={this.props.onSelect} />}
               />
+              <Route path={`${this.props.match.url}/chart`} component={Chart}/>
           </div>
         </div>
 

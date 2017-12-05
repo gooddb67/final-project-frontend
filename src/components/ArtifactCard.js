@@ -8,6 +8,7 @@ import { createComment, deleteComment, deleteArtifactFromDb, addComment } from "
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
 import FaTrashO from 'react-icons/lib/fa/trash-o'
+import FaTwitter from 'react-icons/lib/fa/twitter'
 
 class ArtifactCard extends React.Component {
 
@@ -68,6 +69,8 @@ class ArtifactCard extends React.Component {
 
   render(){
     const artifactBackground = {backgroundColor: this.backgroundColor()}
+    const link = this.props.artifact.url
+    const url = `https://twitter.com/intent/tweet?url=${link}&hashtags=${this.props.artifact.subtopic.name}`
 
     return(
         <div className='artifact-container'>
@@ -89,6 +92,9 @@ class ArtifactCard extends React.Component {
                   </div>
                 </Modal.Content>
               </Modal>
+              <a target="_blank" class="twitter-share-button"
+                  href={url}><FaTwitter size={35}/>
+              </a>
               <FaTrashO size={35} onClick={this.handleDelete}/>
             </Form.Group>
           </Form>

@@ -18,7 +18,7 @@ class SubtopicShow extends React.Component {
 
     return(
         <div>
-          <Header>{this.props.subtopic.name}</Header>
+          <Header size={'large'}>{this.props.subtopic.name}</Header>
           <Grid>
             <Grid.Row>
               <Grid.Column width={12}>
