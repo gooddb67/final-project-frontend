@@ -1,9 +1,7 @@
 import React from 'react'
-import { Grid } from 'semantic-ui-react'
 import TopicList from '../components/TopicList';
 import TopicShow from '../components/TopicShow'
 import TopicNew from '../components/TopicNew'
-import {Link} from 'react-router-dom'
 
   export default class TopicGrid extends React.Component{
 
@@ -11,7 +9,7 @@ import {Link} from 'react-router-dom'
     return (
             <div>
               <TopicNew topic={this.props.selectTopic}/>
-              
+
                 <TopicList
                   onDelete={this.props.onDelete}
                   topics={this.props.topics}

@@ -4,12 +4,13 @@ import {NavLink } from 'react-router-dom';
 
 const link = {
   width: '100px',
-  padding: '12px',
+  padding: '8px',
   margin: '0 6px 6px',
   background: 'blue',
   textDecoration: 'none',
   color: 'white',
-  float: 'right'
+  float: 'right',
+  textAlign: 'center'
 }
 
 const NavBar = () => {
