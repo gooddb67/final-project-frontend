@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Link, Switch} from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchTopics, selectTopic, deleteTopic } from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
@@ -21,8 +21,14 @@ class TopicContainer extends Component {
   render() {
     return (
       <div>
+
           <Header color='grey' as='h1'>Davey's Notetaking Application</Header>
           <div>
+            <Route exact path={`${this.props.match.url}/chart`} render={() =>
+              <Chart
+              topics={this.props.topics}
+              artifacts={this.props.artifacts}/>}
+            />
               <Route exact path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
               <Route exact path={this.props.match.url} render={() =>
                 <TopicGrid
@@ -30,11 +36,6 @@ class TopicContainer extends Component {
                 selectTopic={this.props.selectTopic}
                 onDelete={this.props.onDelete}
                 onSelect={this.props.onSelect} />}
-              />
-              <Route path={`${this.props.match.url}/chart`} render={() =>
-                <Chart
-                topics={this.props.topics}
-                artifacts={this.props.artifacts}/>}
               />
           </div>
         </div>

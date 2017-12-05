@@ -6,7 +6,6 @@ import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
 import ArtifactFilter from '../components/ArtifactFilter'
 import {Segment, Header, Grid} from 'semantic-ui-react'
-import SubtopicChart from '../components/SubtopicChart'
 import {Route} from 'react-router-dom'
 
 class SubtopicShow extends React.Component {
@@ -17,7 +16,7 @@ class SubtopicShow extends React.Component {
 
   render(){
     const subtopicArtifactsArray = this.props.artifacts.filter((artifact, index) => artifact.subtopic.id == this.props.match.params.subtopicId )
-    console.log(`${this.props.match.url}/chart`);
+
     return(
         <div>
           <Header size={'large'}>{this.props.subtopic.name}</Header>
@@ -27,11 +26,6 @@ class SubtopicShow extends React.Component {
                 <ArtifactNew subtopic={this.props.subtopic}/>
               </Grid.Column>
               <Grid.Column width={4}>
-                <Route path={`${this.props.match.url}/chart`} render={() => (
-                  console.log("POOP")
-                  // <SubtopicChart subtopic={this.props.subtopic} artifacts={this.props.artifacts}/>
-                )}
-                />
                 <ArtifactFilter artifacts={subtopicArtifactsArray}/>
               </Grid.Column>
             </Grid.Row>
