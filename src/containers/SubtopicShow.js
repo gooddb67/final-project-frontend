@@ -5,8 +5,7 @@ import {fetchTopics} from "../actions/topics"
 import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
 import ArtifactFilter from '../components/ArtifactFilter'
-import {Segment, Header, Grid} from 'semantic-ui-react'
-import {Route} from 'react-router-dom'
+import {Header, Grid} from 'semantic-ui-react'
 
 class SubtopicShow extends React.Component {
 

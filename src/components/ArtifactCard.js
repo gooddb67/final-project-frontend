@@ -1,10 +1,8 @@
 import React from 'react'
 import { Segment } from 'semantic-ui-react'
-import { Container } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
-import {Grid} from 'semantic-ui-react'
-import { Button, Comment, Form, Modal } from 'semantic-ui-react'
-import { createComment, deleteComment, deleteArtifactFromDb, addComment } from "../actions/artifacts";
+import { Button, Form, Modal } from 'semantic-ui-react'
+import { createComment, deleteArtifactFromDb, addComment } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
 import FaTrashO from 'react-icons/lib/fa/trash-o'

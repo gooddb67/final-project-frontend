@@ -2,8 +2,6 @@ import React from 'react';
 import ArtifactCard from './ArtifactCard'
 import {Grid} from 'semantic-ui-react'
 
-const linkColor = '#c4def6'
-
 const ArtifactList = (props) => {
 
 

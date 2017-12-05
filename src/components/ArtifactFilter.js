@@ -1,7 +1,7 @@
 import React from 'react'
 import {filterArtifacts} from '../actions/artifacts'
 import { connect } from 'react-redux';
-import {Dropdown, Form, Menu} from 'semantic-ui-react'
+import {Dropdown, Form} from 'semantic-ui-react'
 
 const filters = [
   { key: 1, text: 'Link', value: 'Link' },

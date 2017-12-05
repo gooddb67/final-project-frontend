@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {createArtifact} from '../actions/artifacts'
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import {Dropdown, Form, Menu} from 'semantic-ui-react'
+import {Dropdown, Form} from 'semantic-ui-react'
 
 const CLOUDINARY_UPLOAD_PRESET = 'u51cllhb';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dyb2wepuc/upload/';

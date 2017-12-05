@@ -1,14 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {NavLink } from 'react-router-dom';
 
 const link = {
   width: '100px',
   padding: '8px',
   margin: '0 6px 6px',
-  background: 'blue',
+  background: '#daf0de',
   textDecoration: 'none',
-  color: 'white',
+  color: 'black',
   float: 'right',
   textAlign: 'center'
 }

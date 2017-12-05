@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { Route, Link, Switch} from "react-router-dom";
+import { Route} from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchTopics, selectTopic, deleteTopic } from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
-import TopicShow from '../components/TopicShow'
-import TopicNew from '../components/TopicNew'
 import SubtopicShow from './SubtopicShow'
-import SubtopicNew from '../components/SubtopicNew'
 import TopicGrid from './TopicGrid'
 import {Header} from 'semantic-ui-react'
 import Chart from '../components/Chart'

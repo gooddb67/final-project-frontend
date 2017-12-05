@@ -1,8 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Form, Grid, Button } from 'semantic-ui-react'
-import {createTopic, addTopic} from '../actions/topics'
-import { Route, Redirect } from "react-router-dom";
+import { Form, Grid } from 'semantic-ui-react'
+import {createTopic} from '../actions/topics'
 
 
 class TopicNew extends React.Component {

@@ -2,10 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { Form, Grid } from 'semantic-ui-react'
 import {createSubtopic} from '../actions/topics'
-import { Route, Redirect } from 'react-router'
-
-
-
 
 class SubtopicNew extends React.Component {
 
