@@ -31,7 +31,11 @@ class TopicContainer extends Component {
                 onDelete={this.props.onDelete}
                 onSelect={this.props.onSelect} />}
               />
-              <Route path={`${this.props.match.url}/chart`} component={Chart}/>
+              <Route path={`${this.props.match.url}/chart`} render={() =>
+                <Chart
+                topics={this.props.topics}
+                artifacts={this.props.artifacts}/>}
+              />
           </div>
         </div>
 
@@ -42,8 +46,9 @@ class TopicContainer extends Component {
   function mapStateToProps(state) {
     return {
       topics: state.topics.topics,
+      artifacts: state.artifacts.artifacts,
       selectTopic: state.topics.selectTopic,
-      isLoading: state.isLoading,
+      isLoading: state.isLoading
     };
   }
 
