@@ -10,7 +10,6 @@ import {Header, Grid} from 'semantic-ui-react'
 class SubtopicShow extends React.Component {
 
   state = {
-    filteredArtifacts: null
   }
 
   render(){

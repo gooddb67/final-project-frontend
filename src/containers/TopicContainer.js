@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route} from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchTopics, selectTopic, deleteTopic } from "../actions/topics";
+import { fetchTopics, selectTopic, deleteSubtopicFromDb } from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
 import SubtopicShow from './SubtopicShow'
 import TopicGrid from './TopicGrid'
@@ -61,8 +61,8 @@ class TopicContainer extends Component {
       onSelect: topic => {
         dispatch(selectTopic(topic))
       },
-      onDelete: topic => {
-        dispatch(deleteTopic(topic))
+      onDelete: subtopic => {
+        dispatch(deleteSubtopicFromDb(subtopic))
       }
     };
   }

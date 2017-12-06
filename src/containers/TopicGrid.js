@@ -11,13 +11,15 @@ import TopicNew from '../components/TopicNew'
               <TopicNew topic={this.props.selectTopic}/>
 
                 <TopicList
-                  onDelete={this.props.onDelete}
                   topics={this.props.topics}
                   topic={this.props.selectTopic}
                   onSelect={this.props.onSelect}
                 />
 
-            <TopicShow topic={this.props.selectTopic} />
+            <TopicShow
+              topic={this.props.selectTopic}
+              onDelete={this.props.onDelete}
+             />
           </div>
       )
     }

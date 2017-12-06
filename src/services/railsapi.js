@@ -45,7 +45,6 @@ export default class RailsApi {
   }
 
   static createComment(params){
-    console.log("railsapi", params)
     return fetch(`http://localhost:3000/api/v1/artifacts/${params.artifact_id}/comments`, {
       method: 'post',
       headers: {
@@ -69,6 +68,13 @@ export default class RailsApi {
 
   static deleteArtifact(params){
     return fetch(`http://localhost:3000/api/v1/artifacts/${params}`, {
+      method: 'delete'
+    }).then(res => res.json())
+  }
+
+  static deleteSubtopic(params){
+    console.log('railsapi', params)
+    return fetch(`http://localhost:3000/api/v1/subtopics/${params}`, {
       method: 'delete'
     }).then(res => res.json())
   }

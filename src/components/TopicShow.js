@@ -7,6 +7,10 @@ import { Grid } from 'semantic-ui-react'
 
 const TopicShow = (props) => {
 
+  const handleDelete = (subtopic) => {
+    props.onDelete(subtopic.id)
+  }
+
   const subtopicLinks =
 
     props.topic.subtopics ? props.topic.subtopics.map((subtopic, index) => <Grid.Column>

@@ -41,10 +41,10 @@ export function addSubtopic(subtopic){
   }
 }
 
-export function deleteTopic(id){
+export function deleteSubtopic(subtopic){
     return{
-    type: "DELETE_TOPIC",
-    payload: id
+    type: "DELETE_SUBTOPIC",
+    payload: subtopic
   }
 }
 
@@ -54,14 +54,15 @@ export function createTopic(params){
   }
 }
 
-export function destroyTopicFromDb(params){
-  return function(dispatch){
-    RailsApi.deleteTopic(params).then(json => dispatch(deleteTopic(json)))
-  }
-}
-
 export function createSubtopic(params){
   return function(dispatch){
     RailsApi.createSubtopic(params).then(json => dispatch(addSubtopic(json)))
+  }
+}
+
+export function deleteSubtopicFromDb(params){
+  console.log('topics', params)
+  return function(dispatch){
+    RailsApi.deleteSubtopic(params).then(json => dispatch(deleteSubtopic(json)))
   }
 }

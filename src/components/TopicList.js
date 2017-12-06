@@ -5,7 +5,7 @@ import {Grid} from 'semantic-ui-react'
 const TopicList = (props) => {
 
   const renderTopics = props.topics.map((topic, idx) =>
-  <Grid.Column><TopicCard key={topic.id} topic={topic} onDelete={props.onDelete} onSelect={props.onSelect}/></Grid.Column>
+  <Grid.Column><TopicCard key={topic.id} topic={topic} onSelect={props.onSelect}/></Grid.Column>
   );
   return (
     <Grid columns='four'>{renderTopics}</Grid>
