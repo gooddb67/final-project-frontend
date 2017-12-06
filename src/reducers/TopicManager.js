@@ -1,4 +1,4 @@
-export default function TopicManager(state = { topics: [], isLoading: false, selectTopic: {},
+export default function TopicManager(state = { topics: [], articles: [], isLoading: false, selectTopic: {}, selectSubtopic: {},
  },
   action){
   switch (action.type) {
@@ -8,10 +8,14 @@ export default function TopicManager(state = { topics: [], isLoading: false, sel
         return {...state, selectTopic: {...state.selectTopic, subtopics: [...state.selectTopic.subtopics, action.payload]}}
     case "FETCHED_TOPICS":
       return { ...state, topics: action.payload, isLoading: false };
+    case "FETCHED_ARTICLES":
+      return {...state, articles: action.payload}
     case "FETCHING_TOPICS":
       return { ...state, isLoading: true };
     case "SELECTED_TOPIC":
         return {...state, selectTopic: action.payload}
+    case "SELECTED_SUBTOPIC":
+        return {...state, selectSubtopic: action.payload}
     case "DELETE_TOPIC":
       const topics = state.topics.filter(topic => topic.id !== action.id);
       return {topics}

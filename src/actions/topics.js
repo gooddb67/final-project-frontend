@@ -1,4 +1,5 @@
 import RailsApi from "../services/railsapi";
+import TimesApi from "../services/timesapi"
 
 export function fetchTopics(){
   return function(dispatch){
@@ -9,11 +10,26 @@ export function fetchTopics(){
   }
 }
 
+export function fetchArticles(term){
+  return function(dispatch){
+    TimesApi.fetchArticles(term).then(json =>
+      dispatch(fetchedArticles(json))
+    )
+  }
+}
+
 function fetchedTopics(topics) {
   return {
     type: "FETCHED_TOPICS",
     payload: topics
   };
+}
+
+function fetchedArticles(articles){
+  return {
+    type: "FETCHED_ARTICLES",
+    payload: articles
+  }
 }
 
 function fetchingTopics() {
@@ -24,6 +40,13 @@ export function selectTopic(topic) {
   return{
     type: "SELECTED_TOPIC",
     payload: topic
+  }
+}
+
+export function selectSubtopic(subtopic) {
+  return{
+    type: "SELECTED_SUBTOPIC",
+    payload: subtopic
   }
 }
 
@@ -61,7 +84,6 @@ export function createSubtopic(params){
 }
 
 export function deleteSubtopicFromDb(params){
-  console.log('topics', params)
   return function(dispatch){
     RailsApi.deleteSubtopic(params).then(json => dispatch(deleteSubtopic(json)))
   }

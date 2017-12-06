@@ -42,6 +42,13 @@ export function filterArtifacts(filter){
   }
 }
 
+export function setUrl(url){
+  return {
+    type: 'SET_URL',
+    payload: url
+  }
+}
+
 export function selectedArtifact(artifact) {
   return{
     type: "SELECTED_ARTIFACT",

@@ -1,4 +1,4 @@
-export default function ArtifactManager(state = {artifacts: [], currentArtifact: {}}, action){
+export default function ArtifactManager(state = {artifacts: [], currentArtifact: {}, artifactUrl: ''}, action){
   switch (action.type) {
     case "ADD_ARTIFACT":
       return {...state, artifacts: state.artifacts.concat(action.payload)}
@@ -11,6 +11,8 @@ export default function ArtifactManager(state = {artifacts: [], currentArtifact:
       return { ...state, artifacts: action.payload, isLoading: false };
     case "FETCHING_ARTIFACTS":
       return { ...state, isLoading: true };
+    case "SET_URL":
+        return {...state, artifactUrl: action.payload}
     case "FILTER_ARTIFACTS":
       const filteredArtifacts = state.artifacts.filter(artifact => artifact.media === action.filter)
       return {...state, artifacts: filteredArtifacts}

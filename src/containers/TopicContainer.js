@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Route} from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchTopics, selectTopic, deleteSubtopicFromDb } from "../actions/topics";
+import { fetchTopics, selectTopic, deleteSubtopicFromDb, selectSubtopic } from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
 import SubtopicShow from './SubtopicShow'
 import TopicGrid from './TopicGrid'
 import {Header} from 'semantic-ui-react'
 import Chart from '../components/Chart'
+import Times from '../components/Times'
+import NavBar from '../components/NavBar'
 
 
 class TopicContainer extends Component {
@@ -18,13 +20,22 @@ class TopicContainer extends Component {
   render() {
     return (
       <div>
-
+          <NavBar />
           <Header color='grey' as='h1'>Davey's Notetaking Application</Header>
           <div>
             <Route exact path={`${this.props.match.url}/chart`} render={() =>
               <Chart
               topics={this.props.topics}
               artifacts={this.props.artifacts}/>}
+            />
+            <Route exact path={`${this.props.match.url}/discover`} render={(props) =>
+              <Times
+                {...props}
+                selectTopic={this.props.selectTopic}
+                onSelect={this.props.onSelect}
+                onSubtopicSelect={this.props.onSubtopicSelect}
+              />
+            }
             />
               <Route exact path={`${this.props.match.url}/${this.props.selectTopic.id}/subtopics/:subtopicId`} component={SubtopicShow} />
               <Route exact path={this.props.match.url} render={() =>
@@ -63,6 +74,9 @@ class TopicContainer extends Component {
       },
       onDelete: subtopic => {
         dispatch(deleteSubtopicFromDb(subtopic))
+      },
+      onSubtopicSelect: subtopic => {
+        dispatch(selectSubtopic(subtopic))
       }
     };
   }

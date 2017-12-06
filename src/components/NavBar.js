@@ -9,7 +9,7 @@ const link = {
   textDecoration: 'none',
   color: 'black',
   float: 'right',
-  textAlign: 'center'
+  textAlign: 'center',
 }
 
 const NavBar = () => {
@@ -20,16 +20,25 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: 'coral'
+        background: '#f2a88d'
       }}>
       Overview
     </NavLink>
+    <NavLink
+      to='/topics/discover'
+      exact
+      style={link}
+      activeStyle={{
+        background: '#f2a88d'
+      }}>
+        Discover
+      </NavLink>
     <NavLink
       to='/topics'
       exact
       style={link}
       activeStyle={{
-        background: 'coral'
+        background: '#f2a88d'
       }}>
       Topics
     </NavLink>
@@ -38,7 +47,7 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: 'coral'
+        background: '#f2a88d'
       }}>
         Home
       </NavLink>

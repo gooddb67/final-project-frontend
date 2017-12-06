@@ -3,6 +3,7 @@ import TopicContainer from './containers/TopicContainer'
 import { Route } from "react-router-dom";
 import { Container } from 'semantic-ui-react'
 import NavBar from './components/NavBar'
+import Homepage from './components/Homepage'
 
 class App extends Component {
 
@@ -11,8 +12,7 @@ class App extends Component {
     return (
       <Container>
         <div>
-          <NavBar />
-          <Route exact path="/" render={() => <div>Home</div>} />
+          <Route exact path="/" render={() => <Homepage />} />
           <Route path='/topics' component={TopicContainer} />
         </div>
       </Container>

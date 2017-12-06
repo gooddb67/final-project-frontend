@@ -34,6 +34,7 @@ export default class RailsApi {
   }
 
   static createArtifact(params) {
+    console.log('rails', params)
     return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics/${params.subtopic_id}/artifacts`, {
       method: 'post',
       headers: {
