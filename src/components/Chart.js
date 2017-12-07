@@ -24,7 +24,7 @@ import {Header} from 'semantic-ui-react'
       datasets: [{
         data: topicArtifacts(),
         backgroundColor: CSS_COLOR_NAMES,
-        hoverBackgroundColor: 'grey'
+        hoverBackgroundColor: CSS_COLOR_NAMES
       }]
     }
 

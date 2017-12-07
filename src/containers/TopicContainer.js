@@ -18,6 +18,7 @@ class TopicContainer extends Component {
    }
 
   render() {
+    console.log(this.props.topics);
     return (
       <div>
           <NavBar />

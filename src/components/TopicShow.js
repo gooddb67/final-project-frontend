@@ -11,16 +11,22 @@ const TopicShow = (props) => {
     props.onDelete(subtopic.id)
   }
 
-  const subtopicLinks =
+  const getSubtopicLinks = () => {
+    if (props.topic.subtopics) {
+      return (
+        props.topic.subtopics.map((subtopic, index) => (
+          <Grid.Column>
+            <div className='subtopic-card' textAlign='center'>
+              <div className='subtopic-card-container'>
+                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}> {subtopic.name}</Link>
+              </div>
+            </div>
+          </Grid.Column>
+        )))}
+    return null
+  }
 
-    props.topic.subtopics ? props.topic.subtopics.map((subtopic, index) => <Grid.Column>
-      <div className='subtopic-card' textAlign='center'>
-        <div className='subtopic-card-container'>
-          <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}> {subtopic.name}
-        </Link>
-      </div>
-    </div>
-  </Grid.Column>) : null
+  const subtopicLinks = getSubtopicLinks()
 
   return (
     <div>

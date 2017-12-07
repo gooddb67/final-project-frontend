@@ -57,7 +57,7 @@ export function addTopic(topic){
   }
 }
 
-export function addSubtopic(subtopic){
+export function addSubtopic(subtopic) {
   return{
     type: "ADD_SUBTOPIC",
     payload: subtopic

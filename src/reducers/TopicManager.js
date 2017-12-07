@@ -5,7 +5,17 @@ export default function TopicManager(state = { topics: [], articles: [], isLoadi
     case "ADD_TOPIC":
       return {...state, topics: state.topics.concat(action.payload) }
     case "ADD_SUBTOPIC":
-        return {...state, selectTopic: {...state.selectTopic, subtopics: [...state.selectTopic.subtopics, action.payload]}}
+        const newTopicArray = state.topics.map(t => {
+          if (t.id === action.payload.topic_id) {
+            const newSubArr = t.subtopics.slice()
+            newSubArr.push(action.payload)
+            t.subtopics = newSubArr
+          }
+          return t
+        })
+        console.log(newTopicArray);
+        //return {...state, topics: newTopicArray, selectTopic: {...state.selectTopic, subtopics: [...state.selectTopic.subtopics, action.payload]}}
+        return {...state, topics: newTopicArray}
     case "FETCHED_TOPICS":
       return { ...state, topics: action.payload, isLoading: false };
     case "FETCHED_ARTICLES":

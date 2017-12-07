@@ -20,7 +20,7 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: '#f2a88d'
+        background: '#b9eac2'
       }}>
       Overview
     </NavLink>
@@ -29,7 +29,7 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: '#f2a88d'
+        background: '#b9eac2'
       }}>
         Discover
       </NavLink>
@@ -38,7 +38,7 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: '#f2a88d'
+        background: '#b9eac2'
       }}>
       Topics
     </NavLink>
@@ -47,7 +47,7 @@ const NavBar = () => {
       exact
       style={link}
       activeStyle={{
-        background: '#f2a88d'
+        background: '#b9eac2'
       }}>
         Home
       </NavLink>
