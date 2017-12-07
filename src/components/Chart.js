@@ -1,5 +1,6 @@
 import React from 'react'
 import {Doughnut} from 'react-chartjs-2';
+import {Header} from 'semantic-ui-react'
 
   const Chart = (props) => {
 
@@ -23,14 +24,17 @@ import {Doughnut} from 'react-chartjs-2';
       datasets: [{
         data: topicArtifacts(),
         backgroundColor: CSS_COLOR_NAMES,
-        hoverBackgroundColor: '#FFDC00'
+        hoverBackgroundColor: 'grey'
       }]
     }
 
     return(
       <div>
+      <Header size='medium' textAlign='center'>Artifacts</Header>
+      <div>
         <Doughnut data={data} />
       </div>
+    </div>
     )
   }
 

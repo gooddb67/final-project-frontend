@@ -54,12 +54,54 @@ a {
   font-family: 'Hind', sans-serif;
 }
 
+.topic-card-discover {
+  font-size: 20px;
+  background-color: #e0e0f0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.1s;
+  height: 50px;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  margin: 10px;
+  width: 100%;
+}
+
+.subtopic-card-discover {
+  font-size: 20px;
+  background-color: #f0ecbc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.1s;
+  height: 50px;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  margin: 10px;
+  width: 100%;
+
+}
+
+.discover-container {
+  width: 50%;
+  margin: auto;
+}
+
 .topic-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer
 }
 
 .subtopic-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer
+}
+
+.topic-card-discover:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer
+}
+
+.subtopic-card-discover:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer
 }
 
 .submit-button {

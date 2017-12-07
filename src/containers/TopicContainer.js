@@ -21,7 +21,7 @@ class TopicContainer extends Component {
     return (
       <div>
           <NavBar />
-          <Header color='grey' as='h1'>Davey's Notetaking Application</Header>
+          <Header color='grey' as='h1'>URLink</Header>
           <div>
             <Route exact path={`${this.props.match.url}/chart`} render={() =>
               <Chart

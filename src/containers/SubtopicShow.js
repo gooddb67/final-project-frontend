@@ -24,7 +24,7 @@ class SubtopicShow extends React.Component {
                 <ArtifactNew subtopic={this.props.subtopic}/>
               </Grid.Column>
               <Grid.Column width={4}>
-                <ArtifactFilter artifacts={subtopicArtifactsArray}/>
+                {/* <ArtifactFilter artifacts={subtopicArtifactsArray}/> */}
               </Grid.Column>
             </Grid.Row>
           </Grid>
