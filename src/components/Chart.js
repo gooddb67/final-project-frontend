@@ -30,7 +30,7 @@ import {Header} from 'semantic-ui-react'
 
     return(
       <div>
-      <Header size='medium' textAlign='center'>Artifacts</Header>
+      <Header size='medium' textAlign='center'>Topic Breakdown</Header>
       <div>
         <Doughnut data={data} />
       </div>

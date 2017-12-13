@@ -26,7 +26,7 @@ a {
 }
 
 .subtopic-header h1{
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Spectral SC', sans-serif;
   margin-left: 3px
 }
 
@@ -51,7 +51,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Spectral SC', sans-serif;
 }
 
 .topic-card-discover {
@@ -61,7 +61,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Spectral SC', sans-serif;
   margin: 10px;
   width: 100%;
 }
@@ -73,7 +73,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Spectral SC', sans-serif;
   margin: 10px;
   width: 100%;
 
