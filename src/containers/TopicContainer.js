@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route} from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchTopics, selectTopic, deleteSubtopicFromDb, selectSubtopic } from "../actions/topics";
+import { fetchTopics, selectTopic, deleteSubtopicFromDb, selectSubtopic , deleteTopicFromDb} from "../actions/topics";
 import { fetchArtifacts } from "../actions/artifacts";
 import SubtopicShow from './SubtopicShow'
 import TopicGrid from './TopicGrid'
@@ -18,7 +18,6 @@ class TopicContainer extends Component {
    }
 
   render() {
-    console.log(this.props.topics);
     return (
       <div>
           <NavBar />
@@ -44,7 +43,9 @@ class TopicContainer extends Component {
                 topics={this.props.topics}
                 selectTopic={this.props.selectTopic}
                 onDelete={this.props.onDelete}
-                onSelect={this.props.onSelect} />}
+                onSelect={this.props.onSelect}
+                onTopicDelete={this.props.onTopicDelete}
+               />}
               />
           </div>
         </div>
@@ -78,6 +79,9 @@ class TopicContainer extends Component {
       },
       onSubtopicSelect: subtopic => {
         dispatch(selectSubtopic(subtopic))
+      },
+      onTopicDelete: topic => {
+        dispatch(deleteTopicFromDb(topic))
       }
     };
   }

@@ -23,7 +23,7 @@ export default class RailsApi {
   }
 
   static deleteTopic(params){
-    return fetch(`http://localhost:3000/ap1/v1/topics`, {
+    return fetch(`http://localhost:3000/api/v1/topics/${params}`, {
       method: 'delete',
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,6 @@ export default class RailsApi {
   }
 
   static createArtifact(params) {
-    console.log('rails', params)
     return fetch(`http://localhost:3000/api/v1/topics/${params.topic_id}/subtopics/${params.subtopic_id}/artifacts`, {
       method: 'post',
       headers: {

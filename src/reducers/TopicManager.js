@@ -27,8 +27,9 @@ export default function TopicManager(state = { topics: [], articles: [], isLoadi
     case "SELECTED_SUBTOPIC":
         return {...state, selectSubtopic: action.payload}
     case "DELETE_TOPIC":
-      const topics = state.topics.filter(topic => topic.id !== action.id);
-      return {topics}
+    console.log(action)
+      const topics = state.topics.filter(topic => topic.id !== action.payload.id);
+      return {...state, topics: topics}
     case 'DELETE_SUBTOPIC':
       const topic = state.topics.find(topic => topic.id === action.payload.topic_id)
             topic.subtopics.filter(subtopic => subtopic.id !== action.payload.id)

@@ -14,6 +14,8 @@ import TopicNew from '../components/TopicNew'
                   topics={this.props.topics}
                   topic={this.props.selectTopic}
                   onSelect={this.props.onSelect}
+                  onDelete={this.props.onDeleteTopic}
+                  onTopicDelete={this.props.onTopicDelete}
                 />
 
             <TopicShow

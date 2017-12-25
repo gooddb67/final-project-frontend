@@ -71,6 +71,13 @@ export function deleteSubtopic(subtopic){
   }
 }
 
+export function deleteTopic(topic){
+    return{
+    type: "DELETE_TOPIC",
+    payload: topic
+  }
+}
+
 export function createTopic(params){
   return function(dispatch){
     RailsApi.createTopic(params).then(json => dispatch(addTopic(json)))
@@ -80,6 +87,12 @@ export function createTopic(params){
 export function createSubtopic(params){
   return function(dispatch){
     RailsApi.createSubtopic(params).then(json => dispatch(addSubtopic(json)))
+  }
+}
+
+export function deleteTopicFromDb(params){
+  return function(dispatch){
+    RailsApi.deleteTopic(params).then(json => dispatch(deleteTopic(json)))
   }
 }
 
