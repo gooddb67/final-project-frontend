@@ -18,8 +18,9 @@ const TopicShow = (props) => {
           <Grid.Column>
             <div className='subtopic-card' textAlign='center'>
               <div className='subtopic-card-container'>
-                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}> {subtopic.name}</Link>
+                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>{subtopic.name}</Link>
               </div>
+              <button onClick={() => handleDelete(subtopic)}>Delete</button>
             </div>
           </Grid.Column>
         )))}

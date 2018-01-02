@@ -7,6 +7,8 @@ const TopicList = (props) => {
   const renderTopics = props.topics.map((topic, idx) =>
   <Grid.Column><TopicCard key={topic.id} onTopicDelete={props.onTopicDelete} topic={topic} onSelect={props.onSelect}/></Grid.Column>
   );
+
+
   return (
     <Grid columns='four'>{renderTopics}</Grid>
   )

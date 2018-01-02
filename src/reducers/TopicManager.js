@@ -13,8 +13,6 @@ export default function TopicManager(state = { topics: [], articles: [], isLoadi
           }
           return t
         })
-        console.log(newTopicArray);
-        //return {...state, topics: newTopicArray, selectTopic: {...state.selectTopic, subtopics: [...state.selectTopic.subtopics, action.payload]}}
         return {...state, topics: newTopicArray}
     case "FETCHED_TOPICS":
       return { ...state, topics: action.payload, isLoading: false };
@@ -27,13 +25,15 @@ export default function TopicManager(state = { topics: [], articles: [], isLoadi
     case "SELECTED_SUBTOPIC":
         return {...state, selectSubtopic: action.payload}
     case "DELETE_TOPIC":
-    console.log(action)
       const topics = state.topics.filter(topic => topic.id !== action.payload.id);
       return {...state, topics: topics}
     case 'DELETE_SUBTOPIC':
-      const topic = state.topics.find(topic => topic.id === action.payload.topic_id)
-            topic.subtopics.filter(subtopic => subtopic.id !== action.payload.id)
-      return {topics}
+      const selectedTopic = state.selectTopic
+      const newSubtopicArr = selectedTopic.subtopics.slice()
+      const filteredSubTopicArr = newSubtopicArr.filter(subtopic => subtopic.id !== action.payload.id)
+      selectedTopic.subtopics = filteredSubTopicArr
+      const newTopics = state.topics.slice()
+      return {...state, topics: newTopics}
     default:
       return state;
   }
