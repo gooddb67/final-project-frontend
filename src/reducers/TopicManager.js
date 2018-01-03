@@ -26,14 +26,14 @@ export default function TopicManager(state = { topics: [], articles: [], isLoadi
         return {...state, selectSubtopic: action.payload}
     case "DELETE_TOPIC":
       const topics = state.topics.filter(topic => topic.id !== action.payload.id);
-      return {...state, topics: topics, selectTopic: {}}
-      case 'DELETE_SUBTOPIC':
-        const selectedTopic = state.selectTopic
-        const newSubtopicArr = selectedTopic.subtopics.slice()
-        const filteredSubTopicArr = newSubtopicArr.filter(subtopic => subtopic.id !== action.payload.id)
-        selectedTopic.subtopics = filteredSubTopicArr
-        const newTopics = state.topics.slice()
-        return {...state, topics: newTopics}
+      return {...state, topics: topics}
+    case 'DELETE_SUBTOPIC':
+      const selectedTopic = state.selectTopic
+      const newSubtopicArr = selectedTopic.subtopics.slice()
+      const filteredSubTopicArr = newSubtopicArr.filter(subtopic => subtopic.id !== action.payload.id)
+      selectedTopic.subtopics = filteredSubTopicArr
+      const newTopics = state.topics.slice()
+      return {...state, topics: newTopics}
     default:
       return state;
   }

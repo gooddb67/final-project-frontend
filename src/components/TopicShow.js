@@ -23,11 +23,16 @@ const TopicShow = (props) => {
           <Grid.Column>
             <div className='subtopic-card' textAlign='center'>
               <div className='subtopic-card-container'>
+<<<<<<< HEAD
                 <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>
                  {subtopic.name}
                </Link>
                <span id='deleteSub' style={deleteSub} onClick={() => handleDelete(subtopic)}>X</span>
+=======
+                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>{subtopic.name}</Link>
+>>>>>>> 0fc78da05aac7bc4edd20391bc17913698d156f6
               </div>
+              <button onClick={() => handleDelete(subtopic)}>Delete</button>
             </div>
           </Grid.Column>
         )))}
