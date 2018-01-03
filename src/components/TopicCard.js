@@ -25,7 +25,6 @@ class TopicCard extends React.Component {
             <span id='deleteSub' style={deleteTopic} onClick={this.handleDelete}>X</span>
           </div>
       </div>
-      <button onClick={this.handleDelete}>Delete</button>
     </div>
 
     )
