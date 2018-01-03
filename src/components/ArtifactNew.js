@@ -57,7 +57,8 @@ class ArtifactNew extends React.Component {
       if (this.state.media !== '' && this.state.url !== ''){
       this.props.createArtifact(this.state);
       this.setState({
-        url: ''
+        url: '',
+        caption: ''
       })
     }else{
       console.log('all fields required')
@@ -78,6 +79,12 @@ class ArtifactNew extends React.Component {
     });
   }
 
+  handleCaptionChange = event => {
+    this.setState({
+      caption: event.target.value
+    });
+  }
+
   render(){
 
     const isImage = this.state.media;
@@ -95,7 +102,14 @@ class ArtifactNew extends React.Component {
             type="text"
             onChange={this.handleUrlChange}
             value={this.state.url}
-            placeholder="URL" />
+            placeholder="URL"
+          />
+          <Form.Input
+            type="text"
+            onChange={this.handleCaptionChange}
+            value={this.state.caption}
+            placeholder="Caption"
+          />
           <Form.Button type="submit" value="Add Artifact">Add Artifact</Form.Button>
         </Form>
       </div> )
@@ -117,6 +131,12 @@ class ArtifactNew extends React.Component {
             onChange={this.handleUrlChange}
             value={this.state.url}
             placeholder="URL" />
+          <Form.Input
+            type="text"
+            onChange={this.handleCaptionChange}
+            value={this.state.caption}
+            placeholder="Caption"
+          />
           <Form.Button type="submit" value="Add Artifact">Add Artifact</Form.Button>
         </Form>
       </div>) }

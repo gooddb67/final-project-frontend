@@ -73,7 +73,6 @@ export default class RailsApi {
   }
 
   static deleteSubtopic(params){
-    console.log('railsapi', params)
     return fetch(`http://localhost:3000/api/v1/subtopics/${params}`, {
       method: 'delete'
     }).then(res => res.json())

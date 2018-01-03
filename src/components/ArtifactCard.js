@@ -73,6 +73,7 @@ class ArtifactCard extends React.Component {
     return(
         <div className='artifact-container'>
           <Segment style={artifactBackground} attached='top' textAlign="center" compact>
+            <h1 id='artifact-caption'>{this.props.artifact.caption}</h1>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
