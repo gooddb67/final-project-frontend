@@ -11,6 +11,11 @@ const TopicShow = (props) => {
     props.onDelete(subtopic.id)
   }
 
+  const deleteSub = {
+    float: 'right',
+    'font-size': '25px'
+  }
+
   const getSubtopicLinks = () => {
     if (props.topic.subtopics) {
       return (
@@ -18,7 +23,10 @@ const TopicShow = (props) => {
           <Grid.Column>
             <div className='subtopic-card' textAlign='center'>
               <div className='subtopic-card-container'>
-                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}> {subtopic.name}</Link>
+                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>
+                 {subtopic.name}
+               </Link>
+               <span id='deleteSub' style={deleteSub} onClick={() => handleDelete(subtopic)}>X</span>
               </div>
             </div>
           </Grid.Column>
