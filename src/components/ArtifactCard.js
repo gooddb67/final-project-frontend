@@ -86,6 +86,11 @@ class ArtifactCard extends React.Component {
                 <Button onClick={this.handleModal} color='green' floated="right">View Notes</Button>}>
                 <Modal.Header>Artifact Notes</Modal.Header>
                 <Modal.Content>
+                  <Form>
+                    <Form.Input type='text'>
+
+                    </Form.Input>
+                  </Form>
                   <div>
                     {this.handleModal()}
                   </div>
