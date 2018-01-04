@@ -3,12 +3,13 @@ import {fetchArticles} from '../actions/topics'
 import {createArtifact, setUrl} from '../actions/artifacts'
 import {connect} from 'react-redux'
 import {Redirect, withRouter} from 'react-router-dom'
-import {Segment, Button, Grid, Header} from 'semantic-ui-react'
+import {Segment, Button, Grid, Header, Input, Form} from 'semantic-ui-react'
 
 class Times extends React.Component {
 
     state = {
       media: 'Link',
+      caption: '',
       // url: this.props.artifactUrl,
       topic_id: null,
       subtopic_id: null
@@ -20,6 +21,12 @@ class Times extends React.Component {
       this.setState({
         topic_id: topic.id
       })
+    }
+
+    handleCaptionChange = event => {
+      this.setState({
+        caption: event.target.value
+      });
     }
 
     handleSubtopicClick(subtopic){
@@ -64,9 +71,26 @@ class Times extends React.Component {
        return this.props.articles.response ?
         this.props.articles.response.docs.map(article =>
         <div>
+          <Segment.Group>
             <Segment style={marginHeight}><a href={article.web_url} target="_blank">{article.headline.main}</a>
-            <Button size='mini' floated='right' onClick={() => this.handleAdd(article.web_url)}>Add as Artifact</Button>
             </Segment>
+            <Segment.Group horizontal>
+              <Segment>
+                <Grid columns='two'>
+                  <Grid.Row>
+                    <Grid.Column>
+                    <Form>
+                      <Form.Input placeholder='Add Caption' size='mini' type='text' onChange={this.handleCaptionChange}/>
+                    </Form>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Button size='mini' floated='right' onClick={() => this.handleAdd(article.web_url)}>Add as Artifact</Button>
+                  </Grid.Column>
+                </Grid.Row>
+                </Grid>
+              </Segment>
+            </Segment.Group>
+          </Segment.Group>
           </div>)
         : null
     }
