@@ -72,6 +72,13 @@ export default class RailsApi {
     }).then(res => res.json())
   }
 
+  static deleteComment(params){
+    console.log('railsapi', params.id)
+    return fetch(`http://localhost:3000/api/v1/comments/${params.id}`,{
+      method: 'delete'
+    }).then(res => res.json())
+  }
+
   static deleteSubtopic(params){
     return fetch(`http://localhost:3000/api/v1/subtopics/${params}`, {
       method: 'delete'

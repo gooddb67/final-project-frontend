@@ -1,8 +1,8 @@
 import React from 'react'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Grid } from 'semantic-ui-react'
 import renderHTML from 'react-render-html';
 import { Button, Form, Modal } from 'semantic-ui-react'
-import { createComment, deleteArtifactFromDb, addComment } from "../actions/artifacts";
+import { createComment, deleteArtifactFromDb, addComment, deleteCommentFromDb } from "../actions/artifacts";
 import { connect } from 'react-redux';
 import { Divider } from 'semantic-ui-react'
 import FaTrashO from 'react-icons/lib/fa/trash-o'
@@ -56,13 +56,22 @@ class ArtifactCard extends React.Component {
 
   handleModal = event => {
     return this.props.artifact.comments.map((comment, idx) => {
-      return <p key={idx}>{comment.content} <Divider /></p>
+      return <p key={idx}>
+          {comment.content}
+          <Button onClick={() => this.handleDeleteComment(comment)} floated='right'>X</Button>
+      <Divider />
+      </p>
     })
   }
 
   handleDelete = event => {
     event.preventDefault()
     this.props.deleteArtifactFromDb(this.props.artifact.id)
+  }
+
+  handleDeleteComment = (comment) => {
+    console.log('handleDeleteComment', comment)
+    this.props.deleteCommentFromDb(comment)
   }
 
   render(){
@@ -79,27 +88,33 @@ class ArtifactCard extends React.Component {
           <Segment attached='bottom'>
           <Form>
             <Form.Group>
-              <Form.Input value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small"></Form.Input>
-              <Button onClick={this.handleSave} size="small" floated="right">Save</Button>
-
+              {/* <Form.Input value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small"></Form.Input> */}
+              {/* <Button onClick={this.handleSave} size="small" floated="right">Save</Button> */}
               <Modal trigger ={
                 <Button onClick={this.handleModal} color='green' floated="right">View Notes</Button>}>
                 <Modal.Header>Artifact Notes</Modal.Header>
                 <Modal.Content>
-                  <Form>
-                    <Form.Input type='text'>
-
-                    </Form.Input>
-                  </Form>
                   <div>
                     {this.handleModal()}
                   </div>
+                  <Grid columns='two'>
+                    <Grid.Row>
+                      <Grid.Column>
+                        <Form>
+                          <Form.Input type='text' value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small" />
+                        </Form>
+                        </Grid.Column>
+                        <Grid.Column>
+                          <Button onClick={this.handleSave} size="small" floated="right">Add Note</Button>
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
                 </Modal.Content>
               </Modal>
-              <a target="_blank" class="twitter-share-button"
+              <a target="_blank" className="twitter-share-button"
                   href={url}><FaTwitter size={35}/>
               </a>
-              <FaTrashO size={35} onClick={this.handleDelete}/>
+              <FaTrashO id='trashIcon' size={35} onClick={this.handleDelete}/>
             </Form.Group>
           </Form>
 
@@ -125,6 +140,9 @@ class ArtifactCard extends React.Component {
       },
       addComment: (comment) => {
         dispatch(addComment(comment))
+      },
+      deleteCommentFromDb: (comment) => {
+        dispatch(deleteCommentFromDb(comment))
       }
     }
   }

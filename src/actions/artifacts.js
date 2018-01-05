@@ -63,9 +63,22 @@ export function deleteArtifact(id){
   }
 }
 
+export function deleteComment(comment){
+  return{
+    type: 'DELETE_COMMENT',
+    payload: comment
+  }
+}
+
 export function createComment(params){
   return function(dispatch){
     RailsApi.createComment(params)
+  }
+}
+
+export function deleteCommentFromDb(params){
+  return function(dispatch){
+    RailsApi.deleteComment(params).then(json => dispatch(deleteComment(json)))
   }
 }
 

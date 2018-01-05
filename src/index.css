@@ -104,6 +104,10 @@ a {
   cursor: pointer
 }
 
+#trashIcon {
+  cursor: pointer
+}
+
 .submit-button {
     background-color: white;
     border: none;
