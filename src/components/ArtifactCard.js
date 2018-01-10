@@ -70,8 +70,7 @@ class ArtifactCard extends React.Component {
   }
 
   handleDeleteComment = (comment) => {
-    console.log('handleDeleteComment', comment)
-    this.props.deleteCommentFromDb(comment)
+    this.props.deleteCommentFromDb(comment.id)
   }
 
   render(){

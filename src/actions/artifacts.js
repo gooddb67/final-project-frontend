@@ -72,7 +72,7 @@ export function deleteComment(comment){
 
 export function createComment(params){
   return function(dispatch){
-    RailsApi.createComment(params)
+    RailsApi.createComment(params).then(json => console.log('createComment', json))
   }
 }
 

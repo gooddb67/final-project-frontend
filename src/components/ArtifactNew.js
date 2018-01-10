@@ -58,7 +58,8 @@ class ArtifactNew extends React.Component {
       this.props.createArtifact(this.state);
       this.setState({
         url: '',
-        caption: ''
+        caption: '',
+        media:''
       })
     }else{
       console.log('all fields required')
@@ -96,7 +97,7 @@ class ArtifactNew extends React.Component {
       <div>
         <Form onSubmit={this.handleOnSubmit} >
 
-            <Dropdown text= 'Media Type' options={options} value={this.state.media} onChange={this.handleMediaChange}/>
+            <Dropdown placeholder='Select Media' options={options} value={this.state.media} onChange={this.handleMediaChange}/>
 
           <Form.Input
             type="text"
