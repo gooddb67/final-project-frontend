@@ -12,8 +12,9 @@ const TopicShow = (props) => {
   }
 
   const deleteSub = {
-    float: 'right',
-    'font-size': '25px'
+    //float: 'right',
+    //'font-size': '25px',
+    'padding-top': '50%'
   }
 
   const getSubtopicLinks = () => {
@@ -21,14 +22,14 @@ const TopicShow = (props) => {
       return (
         props.topic.subtopics.map((subtopic, index) => (
           <Grid.Column>
-            <div className='subtopic-card' textAlign='center'>
-              <div className='subtopic-card-container'>
-                <Link key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>
+            <div className='subtopic-card-container' textAlign='center'>
+                <Link id="subtopicName" key={subtopic.id} to={`/topics/${props.topic.id}/subtopics/${subtopic.id}`}>
                  {subtopic.name}
                </Link>
-               <span id='deleteSub' style={deleteSub} onClick={() => handleDelete(subtopic)}>X</span>
+               <div id="deleteSub" onClick={() => handleDelete(subtopic)}>
+                 X
+               </div>
               </div>
-            </div>
           </Grid.Column>
         )))}
     return null

@@ -80,15 +80,13 @@ class ArtifactCard extends React.Component {
 
     return(
         <div className='artifact-container'>
-          <Segment style={artifactBackground} attached='top' textAlign="center" compact>
+          <Segment style={artifactBackground} attached='top' compact textAlign="center">
             <h1 id='artifact-caption'>{this.props.artifact.caption}</h1>
             {this.mediaRender()}
           </Segment>
           <Segment attached='bottom'>
           <Form>
             <Form.Group>
-              {/* <Form.Input value={this.state.content} placeholder="Add Note" onChange={this.handleChange} size="small"></Form.Input> */}
-              {/* <Button onClick={this.handleSave} size="small" floated="right">Save</Button> */}
               <Modal trigger ={
                 <Button onClick={this.handleModal} color='green' floated="right">View Notes</Button>}>
                 <Modal.Header>Artifact Notes</Modal.Header>

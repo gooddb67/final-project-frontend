@@ -20,17 +20,18 @@ const ArtifactList = (props) => {
   return (
       <div>
         <div>
-          <h1>Links</h1>
           <Grid columns='2'>{renderLinks}</Grid>
         </div>
+        <br />
+        <br />
 
         <div>
-          <h1>Images</h1>
           <Grid columns='2'>{renderImages}</Grid>
         </div>
-
+        <br />
+        <br />
+        
         <div>
-          <h1>Videos</h1>
           <Grid columns='1'>{renderVideos}</Grid>
         </div>
 

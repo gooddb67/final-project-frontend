@@ -14,18 +14,15 @@ class TopicCard extends React.Component {
 
   render(){
     const deleteTopic = {
-      float: 'right',
       'font-size': '25px'
     }
     return(
-      <div>
       <div className="topic-card" onClick={this.handleClick}>
-          <div className='topic-card-container'>
-            {this.props.topic.name}
-            <span id='deleteSub' style={deleteTopic} onClick={this.handleDelete}>X</span>
+          <p id='topicName'>{this.props.topic.name}</p>
+          <div id="deleteTopic" onClick={this.handleDelete}>
+            X
           </div>
       </div>
-    </div>
 
     )
   }

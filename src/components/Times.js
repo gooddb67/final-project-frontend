@@ -58,9 +58,7 @@ class Times extends React.Component {
       return this.props.selectTopic.subtopics ?
        this.props.selectTopic.subtopics.map(subtopic => {
         return <div className='subtopic-card-discover' textAlign='center' onClick={() => this.handleSubtopicClick(subtopic)}>
-          <div className='subtopic-card-container'>
             {subtopic.name}
-          </div>
        </div>
       }) : null
     }
@@ -97,10 +95,14 @@ class Times extends React.Component {
 
   render(){
     const currentTopic = this.props.selectTopic.name
+    const currentStyle = {border: '3px solid black'}
+    const topic = this.props.selectTopic
+    topic.style = currentStyle
 
     return(
       <div>
         <div className='discover-container'>
+          <h1 style={currentStyle}>{topic.name}</h1>
           {this.topics()}
           {this.subtopics()}
         </div>

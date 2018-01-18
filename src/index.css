@@ -10,16 +10,62 @@ a {
   color: inherit;
 }
 
-.topic-card-container{
-  padding: 15px
-}
 
 .subtopic-card-container{
-  padding: 15px;
+  display: grid;
+  grid-template-columns: 2fr 50px;
+  grid-template-rows: 1fr;
+  grid-template-areas: "subName deleteSub";
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #f0ecbc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.1s;
+  height: 50px;
+  text-align: center;
+  font-family: 'Spectral SC', sans-serif;
+}
+
+.topic-card {
+  display: grid;
+  grid-template-columns: 2fr 30px;
+  grid-template-rows: 1fr;
+  grid-template-areas: "topicName deleteTopic";
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #f0e0f4;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.1s;
+  height: 50px;
+  text-align: center;
+  font-family: 'Spectral SC', sans-serif;
+}
+
+#subtopicName{
+  padding-top: 15px;
+}
+
+#topicName{
+  padding-top: 11px;
+  margin-bottom: 0
+}
+
+
+#deleteSub{
+  grid-area: deleteSub;
+  background-color: #fbb298;
+  padding-top: 15px
+}
+
+#deleteTopic{
+  grid-area: deleteTopic;
+  background-color: #fbb298;
+  padding-top: 15px;
 }
 
 .subtopic-header{
-
   margin-top: 25px;
   margin-bottom: 25px;
   font-size: 25px
@@ -30,33 +76,10 @@ a {
   margin-left: 3px
 }
 
-.ui[class*="top attached"].segment {
-
-}
-
-.topic-card {
-  font-size: 20px;
-  background-color: #e0e0f0;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.1s;
-  height: 50px;
-  text-align: center;
-  font-family: 'Spectral SC', sans-serif;
-}
-
-.subtopic-card {
-  font-size: 20px;
-  background-color: #f0ecbc;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.1s;
-  height: 50px;
-  text-align: center;
-  font-family: 'Spectral SC', sans-serif;
-}
 
 .topic-card-discover {
   font-size: 20px;
-  background-color: #e0e0f0;
+  background-color: #f0e0f4;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.1s;
   height: 50px;
@@ -64,6 +87,7 @@ a {
   font-family: 'Spectral SC', sans-serif;
   margin: 10px;
   width: 100%;
+  padding-top: 15px;
 }
 
 .subtopic-card-discover {
@@ -76,7 +100,7 @@ a {
   font-family: 'Spectral SC', sans-serif;
   margin: 10px;
   width: 100%;
-
+  padding-top: 15px;
 }
 
 .discover-container {
@@ -89,7 +113,7 @@ a {
   cursor: pointer
 }
 
-.subtopic-card:hover {
+.subtopic-card-container:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   cursor: pointer
 }
@@ -137,7 +161,4 @@ a {
 .artifact-container a {
   font-size: 18px;
   font-family: 'Barlow Semi Condensed', sans-serif;
-}
-
-#deleteSub {
 }
