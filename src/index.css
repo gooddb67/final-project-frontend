@@ -162,3 +162,7 @@ a {
   font-size: 18px;
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
+
+.currentBorder{
+  border: 2.5px solid coral;
+}

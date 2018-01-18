@@ -41,17 +41,24 @@ class Times extends React.Component {
       const params = {...this.state, url}
       this.props.createArtifact(params)
       this.props.history.push('/topics')
+      this.articles()
     }
 
 
      topics(){
         return this.props.topics.map(topic => {
-         return <div className="topic-card-discover" onClick={() => this.handleClick(topic)}>
+          return topic.id === this.props.selectTopic.id ?
+          <div className="topic-card-discover currentBorder" onClick={() => this.handleClick(topic)}>
            <div className="topic-card-container">
              {topic.name}
           </div>
-        </div>
-       })
+        </div> :
+        <div className="topic-card-discover" onClick={() => this.handleClick(topic)}>
+          <div className="topic-card-container">
+            {topic.name}
+         </div>
+       </div>
+      })
     }
 
     subtopics(){
@@ -95,15 +102,15 @@ class Times extends React.Component {
 
   render(){
     const currentTopic = this.props.selectTopic.name
-    const currentStyle = {border: '3px solid black'}
+    const currentStyle = {border: '3px solid coral'}
     const topic = this.props.selectTopic
     topic.style = currentStyle
 
     return(
       <div>
         <div className='discover-container'>
-          <h1 style={currentStyle}>{topic.name}</h1>
           {this.topics()}
+
           {this.subtopics()}
         </div>
 
