@@ -41,7 +41,6 @@ class Times extends React.Component {
       const params = {...this.state, url}
       this.props.createArtifact(params)
       this.props.history.push('/topics')
-      this.articles()
     }
 
 
