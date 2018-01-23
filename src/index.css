@@ -205,14 +205,14 @@ a {
   font-family: 'Arvo';
   font-size: 140px;
   letter-spacing: 4px;
-  color: rgb(83, 75, 84)
+  color: rgb(59, 54, 60);
 }
 
 .about-container {
   padding: 30px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #fff7f4;
+  background-color: #c1f1e2;
 }
 
 .about-item{
@@ -228,7 +228,8 @@ a {
 .made-with-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  color: #515151
+  color: #515151;
+  height: auto;
 }
 
 .middle-item {
@@ -252,6 +253,28 @@ a {
   background-color: #c0c0f3
 }
 
-#redux-icon {
-  display: inline;
+#react-text{
+  margin-top: 20px;
+}
+
+#redux-text{
+  margin-top: 25px;
+}
+
+#demo-btn {
+    background-color: #d63662;
+    border: none;
+    color: black;
+    padding: 15px 72px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    margin: 0 auto;
+    letter-spacing: .4px;
+}
+
+#demo-btn:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer
 }
