@@ -25,7 +25,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Spectral SC', sans-serif;
+  font-family: 'Arvo', sans-serif;
 }
 
 .topic-card {
@@ -41,7 +41,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Spectral SC', sans-serif;
+  font-family: 'Arvo', sans-serif;
 }
 
 #subtopicName{
@@ -73,7 +73,7 @@ a {
 }
 
 .subtopic-header h1{
-  font-family: 'Spectral SC', sans-serif;
+  font-family: 'Arvo', sans-serif;
   margin-left: 3px
 }
 
@@ -85,7 +85,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Spectral SC', sans-serif;
+  font-family: 'Arvo', sans-serif;
   margin: 10px;
   width: 100%;
   padding-top: 15px;
@@ -98,7 +98,7 @@ a {
   transition: 0.1s;
   height: 50px;
   text-align: center;
-  font-family: 'Spectral SC', sans-serif;
+  font-family: 'Arvo', sans-serif;
   margin: 10px;
   width: 100%;
   padding-top: 15px;
