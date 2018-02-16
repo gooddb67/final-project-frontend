@@ -10,10 +10,10 @@ class Times extends React.Component {
     state = {
       media: 'Link',
       caption: '',
-      // url: this.props.artifactUrl,
       topic_id: null,
       subtopic_id: null
     }
+
 
 
     handleClick(topic){
@@ -39,8 +39,12 @@ class Times extends React.Component {
 
     handleAdd(url){
       const params = {...this.state, url}
-      this.props.createArtifact(params)
-      this.props.history.push('/topics')
+      if (params.topic_id === null) {
+        console.log('need topic id')
+      }else{
+        this.props.createArtifact(params)
+        this.props.history.push('/topics')
+      }
     }
 
 
@@ -109,14 +113,10 @@ class Times extends React.Component {
       <div>
         <div className='discover-container'>
           {this.topics()}
-
           {this.subtopics()}
         </div>
-
         {this.articles()}
-
       </div>
-
     );
   }
 }

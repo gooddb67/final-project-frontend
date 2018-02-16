@@ -57,12 +57,11 @@ class ArtifactCard extends React.Component {
   handleModal = event => {
     return this.props.artifact.comments.map((comment, idx) => {
       return <p key={idx}>
-          {comment.content}
-          <Button onClick={() => this.handleDeleteComment(comment)} floated='right'>X</Button>
-      <Divider />
-      </p>
-    })
-  }
+            {comment.content}
+            <Divider />
+        </p>
+      })
+    }
 
   handleDelete = event => {
     event.preventDefault()

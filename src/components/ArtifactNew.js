@@ -146,14 +146,6 @@ class ArtifactNew extends React.Component {
   }
 }
 
-{/* <div>
-  {this.state.url === '' ? null :
-  <div>
-    <p>{this.state.uploadedFile.name}</p>
-    <img src={this.state.url} />
-  </div>}
-</div> */}
-
 
 
 function mapDispatchToProps(dispatch){
