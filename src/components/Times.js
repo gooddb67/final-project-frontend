@@ -11,9 +11,15 @@ class Times extends React.Component {
       media: 'Link',
       caption: '',
       topic_id: null,
-      subtopic_id: null
+      subtopic_id: null,
+      showArticles: null
     }
 
+    componentDidMount(){
+      this.setState({
+        showArticles: false
+      })
+    }
 
 
     handleClick(topic){
@@ -34,6 +40,7 @@ class Times extends React.Component {
       this.setState({
         subtopic_id: subtopic.id
       })
+      this.setState({showArticles: true})
       this.props.fetchArticles(subtopic.name)
     }
 
@@ -115,7 +122,7 @@ class Times extends React.Component {
           {this.topics()}
           {this.subtopics()}
         </div>
-        {this.articles()}
+        {this.state.showArticles ? this.articles() : null }
       </div>
     );
   }
