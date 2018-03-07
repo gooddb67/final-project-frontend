@@ -185,7 +185,7 @@ a {
   position:relative;
   background-attachment:fixed;
   background-position: center;
-  background-image: url(./hexbackground-bg.jpg);
+  background-image: url(./images/hexbackground-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

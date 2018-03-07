@@ -19,13 +19,6 @@ export default function ArtifactManager(state = {artifacts: [], currentArtifact:
     case "DELETE_ARTIFACT":
         const remainingArtifacts = state.artifacts.filter(artifact => artifact.id !== action.payload)
         return {...state, artifacts: remainingArtifacts}
-    case "DELETE_COMMENT":
-      const currentArtifactDelete = state.artifacts.find(artifact => artifact.id === action.payload.artifact_id)
-      const filteredCommentArr = currentArtifactDelete.comments.filter(comment => comment.id !== action.payload.id)
-      currentArtifactDelete.comments = filteredCommentArr
-      const newArtifacts = state.artifacts.slice()
-      return {...state, artifacts: newArtifacts}
-
     default:
       return {...state}
     }
