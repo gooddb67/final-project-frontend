@@ -11,12 +11,6 @@ const TopicShow = (props) => {
     props.onDelete(subtopic.id)
   }
 
-  const deleteSub = {
-    //float: 'right',
-    //'font-size': '25px',
-    'padding-top': '50%'
-  }
-
   const getSubtopicLinks = () => {
     if (props.topic.subtopics) {
       return (

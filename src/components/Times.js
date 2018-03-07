@@ -2,8 +2,7 @@ import React from 'react'
 import {fetchArticles} from '../actions/topics'
 import {createArtifact, setUrl} from '../actions/artifacts'
 import {connect} from 'react-redux'
-import {Redirect, withRouter} from 'react-router-dom'
-import {Segment, Button, Grid, Header, Input, Form} from 'semantic-ui-react'
+import {Segment, Button, Grid, Form} from 'semantic-ui-react'
 
 class Times extends React.Component {
 
@@ -46,8 +45,8 @@ class Times extends React.Component {
 
     handleAdd(url){
       const params = {...this.state, url}
-      if (params.topic_id === null) {
-        console.log('need topic id')
+      if (!params.topic_id) {
+        console.log('Please select a topic')
       }else{
         this.props.createArtifact(params)
         this.props.history.push('/topics')
@@ -111,7 +110,6 @@ class Times extends React.Component {
     }
 
   render(){
-    const currentTopic = this.props.selectTopic.name
     const currentStyle = {border: '3px solid coral'}
     const topic = this.props.selectTopic
     topic.style = currentStyle

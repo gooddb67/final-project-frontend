@@ -8,8 +8,6 @@ class Homepage extends React.Component{
     this.props.history.push('/topics')
   }
 
-
-
   render(){
 
     return(

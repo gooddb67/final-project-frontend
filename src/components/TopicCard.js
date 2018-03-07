@@ -13,9 +13,6 @@ class TopicCard extends React.Component {
 
 
   render(){
-    const deleteTopic = {
-      'font-size': '25px'
-    }
     return(
       <div className="topic-card" onClick={this.handleClick}>
           <p id='topicName'>{this.props.topic.name}</p>

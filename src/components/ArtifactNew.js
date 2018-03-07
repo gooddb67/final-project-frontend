@@ -62,7 +62,7 @@ class ArtifactNew extends React.Component {
         media:''
       })
     }else{
-      console.log('all fields required')
+      alert('All fields required')
     }
   }
 
