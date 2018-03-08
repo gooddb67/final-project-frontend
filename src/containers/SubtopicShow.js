@@ -4,7 +4,6 @@ import { fetchArtifacts } from "../actions/artifacts";
 import {fetchTopics} from "../actions/topics"
 import ArtifactNew from "../components/ArtifactNew"
 import ArtifactList from "../components/ArtifactList"
-import ArtifactFilter from '../components/ArtifactFilter'
 import {Header, Grid} from 'semantic-ui-react'
 
 class SubtopicShow extends React.Component {
@@ -21,7 +20,6 @@ class SubtopicShow extends React.Component {
                 <ArtifactNew subtopic={this.props.subtopic}/>
               </Grid.Column>
               <Grid.Column width={4}>
-                {/* <ArtifactFilter artifacts={subtopicArtifactsArray}/> */}
               </Grid.Column>
             </Grid.Row>
           </Grid>
