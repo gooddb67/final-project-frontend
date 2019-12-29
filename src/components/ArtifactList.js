@@ -1,42 +1,57 @@
 import React from 'react';
-import ArtifactCard from './ArtifactCard'
-import {Grid} from 'semantic-ui-react'
+import ArtifactCard from './ArtifactCard';
+import { Grid } from 'semantic-ui-react';
 
-const ArtifactList = (props) => {
+const ArtifactList = props => {
+  const renderLinks = props.artifacts
+    .filter(artifact => {
+      return artifact.media === 'Link';
+    })
+    .map((artifact, idx) => (
+      <Grid.Column key={idx}>
+        <ArtifactCard artifact={artifact} />
+      </Grid.Column>
+    ));
 
+  const renderVideos = props.artifacts
+    .filter(artifact => {
+      return artifact.media === 'Video';
+    })
+    .map((artifact, idx) => (
+      <Grid.Column key={idx}>
+        <ArtifactCard artifact={artifact} />
+      </Grid.Column>
+    ));
 
-  const renderLinks = props.artifacts.filter((artifact, idx) => {
-    return artifact.media === 'Link'
-  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column>)
-
-  const renderVideos = props.artifacts.filter((artifact, idx) => {
-    return artifact.media === 'Video'
-  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column> )
-
-  const renderImages = props.artifacts.filter((artifact, idx) => {
-    return artifact.media === 'Image'
-  }).map(artifact => <Grid.Column><ArtifactCard key={artifact.id} artifact={artifact}/></Grid.Column> )
+  const renderImages = props.artifacts
+    .filter(artifact => {
+      return artifact.media === 'Image';
+    })
+    .map((artifact, idx) => (
+      <Grid.Column key={idx}>
+        <ArtifactCard artifact={artifact} />
+      </Grid.Column>
+    ));
 
   return (
+    <div>
       <div>
-        <div>
-          <Grid columns='2'>{renderLinks}</Grid>
-        </div>
-        <br />
-        <br />
-
-        <div>
-          <Grid columns='2'>{renderImages}</Grid>
-        </div>
-        <br />
-        <br />
-        
-        <div>
-          <Grid columns='1'>{renderVideos}</Grid>
-        </div>
-
+        <Grid columns="2">{renderLinks}</Grid>
       </div>
-    )
-  }
+      <br />
+      <br />
 
-export default ArtifactList
+      <div>
+        <Grid columns="2">{renderImages}</Grid>
+      </div>
+      <br />
+      <br />
+
+      <div>
+        <Grid columns="1">{renderVideos}</Grid>
+      </div>
+    </div>
+  );
+};
+
+export default ArtifactList;
