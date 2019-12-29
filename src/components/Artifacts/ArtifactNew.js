@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createArtifact } from '../actions/artifacts';
+import { createArtifact } from '../../actions/artifacts';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Dropdown, Form } from 'semantic-ui-react';

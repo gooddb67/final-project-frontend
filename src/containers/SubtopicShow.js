@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchArtifacts } from '../actions/artifacts';
 import { fetchTopics } from '../actions/topics';
-import ArtifactNew from '../components/ArtifactNew';
-import ArtifactList from '../components/ArtifactList';
+import ArtifactNew from '../components/Artifacts/ArtifactNew';
+import ArtifactList from '../components/Artifacts/ArtifactList';
 import { Header, Grid } from 'semantic-ui-react';
 
 class SubtopicShow extends React.Component {
