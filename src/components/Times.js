@@ -94,42 +94,40 @@ class Times extends React.Component {
     const marginHeight = { margin: '15px', height: 'auto' };
     return this.props.articles.response
       ? this.props.articles.response.docs.map((article, idx) => (
-          <div>
-            <Segment.Group>
-              <Segment key={idx} style={marginHeight}>
-                <a href={article.web_url} target="_blank">
-                  {article.headline.main}
-                </a>
-              </Segment>
-              <Segment.Group horizontal>
-                <Segment>
-                  <Grid columns="two">
-                    <Grid.Row>
-                      <Grid.Column>
-                        <Form>
-                          <Form.Input
-                            placeholder="Add Caption"
-                            size="mini"
-                            type="text"
-                            onChange={this.handleCaptionChange}
-                          />
-                        </Form>
-                      </Grid.Column>
-                      <Grid.Column>
-                        <Button
+          <Segment.Group key={idx}>
+            <Segment style={marginHeight}>
+              <a href={article.web_url} target="_blank">
+                {article.headline.main}
+              </a>
+            </Segment>
+            <Segment.Group horizontal>
+              <Segment>
+                <Grid columns="two">
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Form>
+                        <Form.Input
+                          placeholder="Add Caption"
                           size="mini"
-                          floated="right"
-                          onClick={() => this.handleAdd(article.web_url)}
-                        >
-                          Add as Artifact
-                        </Button>
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-                </Segment>
-              </Segment.Group>
+                          type="text"
+                          onChange={this.handleCaptionChange}
+                        />
+                      </Form>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Button
+                        size="mini"
+                        floated="right"
+                        onClick={() => this.handleAdd(article.web_url)}
+                      >
+                        Add as Artifact
+                      </Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Segment>
             </Segment.Group>
-          </div>
+          </Segment.Group>
         ))
       : null;
   }

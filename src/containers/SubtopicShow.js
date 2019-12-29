@@ -8,11 +8,10 @@ import { Header, Grid } from 'semantic-ui-react';
 
 class SubtopicShow extends React.Component {
   render() {
-    const subtopicArtifactsArray = this.props.artifacts.filter(artifact => {
-      return (
+    const subtopicArtifactsArray = this.props.artifacts.filter(
+      artifact =>
         artifact.subtopic.id === Number(this.props.match.params.subtopicId)
-      );
-    });
+    );
 
     return (
       <div>
