@@ -87,71 +87,42 @@ class ArtifactNew extends React.Component {
   };
 
   render() {
-    const isImage = this.state.media;
+    const { media, url, caption } = this.state;
 
     return (
       <div>
-        {isImage !== 'Image' ? (
-          <div>
-            <Form onSubmit={this.handleOnSubmit}>
-              <Dropdown
-                placeholder="Select Media"
-                options={options}
-                value={this.state.media}
-                onChange={this.handleMediaChange}
-              />
-
-              <Form.Input
-                type="text"
-                onChange={this.handleUrlChange}
-                value={this.state.url}
-                placeholder="URL"
-              />
-              <Form.Input
-                type="text"
-                onChange={this.handleCaptionChange}
-                value={this.state.caption}
-                placeholder="Caption"
-              />
-              <Form.Button type="submit" value="Add Artifact">
-                Add Artifact
-              </Form.Button>
-            </Form>
-          </div>
-        ) : (
-          <div>
-            <Form onSubmit={this.handleOnSubmit}>
-              <Dropdown
-                placeholder="Add Media Type"
-                options={options}
-                value={this.state.media}
-                onChange={this.handleMediaChange}
-              />
-              <Dropzone
-                multiple={false}
-                accept="image/*"
-                onDrop={this.onImageDrop.bind(this)}
-              >
-                <p>Drop an image or click to select a file to upload.</p>
-              </Dropzone>
-              <Form.Input
-                type="text"
-                onChange={this.handleUrlChange}
-                value={this.state.url}
-                placeholder="URL"
-              />
-              <Form.Input
-                type="text"
-                onChange={this.handleCaptionChange}
-                value={this.state.caption}
-                placeholder="Caption"
-              />
-              <Form.Button type="submit" value="Add Artifact">
-                Add Artifact
-              </Form.Button>
-            </Form>
-          </div>
-        )}
+        <Form onSubmit={this.handleOnSubmit}>
+          <Dropdown
+            placeholder="Add Media Type"
+            options={options}
+            value={media}
+            onChange={this.handleMediaChange}
+          />
+          {media === 'Image' && (
+            <Dropzone
+              multiple={false}
+              accept="image/*"
+              onDrop={this.onImageDrop.bind(this)}
+            >
+              <p>Drop an image or click to select a file to upload.</p>
+            </Dropzone>
+          )}
+          <Form.Input
+            type="text"
+            onChange={this.handleUrlChange}
+            value={url}
+            placeholder="URL"
+          />
+          <Form.Input
+            type="text"
+            onChange={this.handleCaptionChange}
+            value={caption}
+            placeholder="Caption"
+          />
+          <Form.Button type="submit" value="Add Artifact">
+            Add Artifact
+          </Form.Button>
+        </Form>
       </div>
     );
   }
