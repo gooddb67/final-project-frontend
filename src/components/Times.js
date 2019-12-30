@@ -44,7 +44,7 @@ class Times extends React.Component {
   handleAdd(url) {
     const params = { ...this.state, url };
     if (!params.topic_id) {
-      console.log('Please select a topic');
+      alert('Please select a topic');
     } else {
       this.props.createArtifact(params);
       this.props.history.push('/topics');

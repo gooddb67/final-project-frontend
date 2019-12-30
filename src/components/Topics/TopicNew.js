@@ -16,7 +16,7 @@ class TopicNew extends React.Component {
         name: ''
       });
     } else {
-      console.log('fields cannot be blank');
+      alert('Field cannot be blank');
     }
   };
 
