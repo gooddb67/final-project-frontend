@@ -2,56 +2,32 @@ import React from 'react';
 import ArtifactCard from './ArtifactCard';
 import { Grid } from 'semantic-ui-react';
 
-const ArtifactList = props => {
-  const renderLinks = props.artifacts
-    .filter(artifact => {
-      return artifact.media === 'Link';
-    })
-    .map((artifact, idx) => (
-      <Grid.Column key={idx}>
-        <ArtifactCard artifact={artifact} />
-      </Grid.Column>
-    ));
+class ArtifactList extends React.Component {
+  render() {
+    const artifacts = this.props.artifacts
+      .filter(artifact => {
+        const { filterValue, subtopicId } = this.props;
 
-  const renderVideos = props.artifacts
-    .filter(artifact => {
-      return artifact.media === 'Video';
-    })
-    .map((artifact, idx) => (
-      <Grid.Column key={idx}>
-        <ArtifactCard artifact={artifact} />
-      </Grid.Column>
-    ));
+        return (
+          (artifact.subtopic.id === Number(subtopicId) &&
+            artifact.media === filterValue) ||
+          (artifact.subtopic.id === Number(subtopicId) && !filterValue)
+        );
+      })
+      .map((artifact, idx) => {
+        return (
+          <Grid.Column key={idx}>
+            <ArtifactCard artifact={artifact} />
+          </Grid.Column>
+        );
+      });
 
-  const renderImages = props.artifacts
-    .filter(artifact => {
-      return artifact.media === 'Image';
-    })
-    .map((artifact, idx) => (
-      <Grid.Column key={idx}>
-        <ArtifactCard artifact={artifact} />
-      </Grid.Column>
-    ));
-
-  return (
-    <div>
+    return (
       <div>
-        <Grid columns="2">{renderLinks}</Grid>
+        <Grid columns="2">{artifacts}</Grid>
       </div>
-      <br />
-      <br />
-
-      <div>
-        <Grid columns="2">{renderImages}</Grid>
-      </div>
-      <br />
-      <br />
-
-      <div>
-        <Grid columns="1">{renderVideos}</Grid>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default ArtifactList;

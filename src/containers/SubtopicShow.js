@@ -4,15 +4,24 @@ import { fetchArtifacts } from '../actions/artifacts';
 import { fetchTopics } from '../actions/topics';
 import ArtifactNew from '../components/Artifacts/ArtifactNew';
 import ArtifactList from '../components/Artifacts/ArtifactList';
+import ArtifactFilter from '../components/Artifacts/ArtifactFilter';
 import { Header, Grid } from 'semantic-ui-react';
 
 class SubtopicShow extends React.Component {
-  render() {
-    const subtopicArtifactsArray = this.props.artifacts.filter(
-      artifact =>
-        artifact.subtopic.id === Number(this.props.match.params.subtopicId)
-    );
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterValue: ''
+    };
 
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
+
+  handleFilterChange(filterValue) {
+    this.setState({ filterValue });
+  }
+
+  render() {
     return (
       <div>
         <Header size={'large'}>{this.props.subtopic.name}</Header>
@@ -21,10 +30,19 @@ class SubtopicShow extends React.Component {
             <Grid.Column width={12}>
               <ArtifactNew subtopic={this.props.subtopic} />
             </Grid.Column>
-            <Grid.Column width={4}></Grid.Column>
+            <Grid.Column width={4}>
+              <ArtifactFilter
+                filterValue={this.state.filterValue}
+                onChange={this.handleFilterChange}
+              />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
-        <ArtifactList artifacts={subtopicArtifactsArray} />
+        <ArtifactList
+          subtopicId={this.props.match.params.subtopicId}
+          filterValue={this.state.filterValue}
+          artifacts={this.props.artifacts}
+        />
       </div>
     );
   }
